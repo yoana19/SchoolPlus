@@ -255,6 +255,13 @@ public class calculator extends JFrame {
 		contentPane.add(btnDecimal);
 		
 		btnEquals = new JButton("=");
+		btnEquals.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+		});
 		btnEquals.setBounds(175, 258, 50, 40);
 		contentPane.add(btnEquals);
 	}
