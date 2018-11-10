@@ -71,9 +71,6 @@ public class todo extends JFrame {
 		btn1.setBounds(6, 24, 28, 23);
 		contentPane.add(btn1);
 
-		if (btn1.isSelected() == true)
-			txt1.setFont(newFont);
-
 		JRadioButton btn2 = new JRadioButton("");
 		btn2.setBounds(6, 59, 28, 23);
 		contentPane.add(btn2);
