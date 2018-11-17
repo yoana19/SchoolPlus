@@ -417,13 +417,10 @@ public class SchoolPlus extends JFrame {
 		pnlLiterature.add(btnReadingDiary);
 		btnReadingDiary.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Runtime r = Runtime.getRuntime();
-				Process p = null;
 				try {
-					String s = "src/readingdiary.exe";
-					p = r.exec(s);
+					readingdiary frame = new readingdiary();
+					frame.setVisible(true);
 				} catch (Exception e) {
-					System.out.println("error===" + e.getMessage());
 					e.printStackTrace();
 				}
 
