@@ -120,7 +120,7 @@ public class readingdiary extends JFrame {
 		setTitle("Reading Diary/\u0427\u0438\u0442\u0430\u0442\u0435\u043B\u0441\u043A\u0438 \u0434\u043D\u0435\u0432\u043D\u0438\u043A");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 645, 640);
+		setBounds(100, 100, 643, 635);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.menu);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -128,9 +128,9 @@ public class readingdiary extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblTitle = new JLabel("Title:");
-		lblTitle.setForeground(SystemColor.desktop);
+		lblTitle.setForeground(Color.BLACK);
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblTitle.setBounds(6, 32, 61, 16);
+		lblTitle.setBounds(6, 32, 117, 16);
 		contentPane.add(lblTitle);
 		
 		
@@ -164,17 +164,17 @@ public class readingdiary extends JFrame {
 					out.write("Quotes: " + "\n" + quotes.getText() + "\n\n");
 					out.write("Opinion: " + "\n" +  opinion.getText() + "\n\n");
 					} else {
-						out.write("Заглавие: " + "\n" + title.getText() + "\n\n");
-						out.write("Автор: " + "\n" + author.getText() + "\n\n");
-						out.write("Жанр: " + "\n" + genre.getText() + "\n\n");
-						out.write("Брой страници: " + "\n" + pages.getText() + "\n\n");
-						out.write("Започната на: " + "\n" + date1.getText() + "\n\n");
-						out.write("Завършена на: " + "\n" + date2.getText() + "\n\n");
-						out.write("Оценка: " + "\n" + rating.getText() + "/5" + "\n\n");
-						out.write("Герои: " + "\n" + characters.getText() + "\n\n");
-						out.write("Резюме: " + "\n" + summary.getText() + "\n\n");
-						out.write("Цитати: " + "\n" + quotes.getText() + "\n\n");
-						out.write("Мнение: " + "\n" +  opinion.getText() + "\n\n");
+						out.write("Р—Р°РіР»Р°РІРёРµ: " + "\n" + title.getText() + "\n\n");
+						out.write("РђРІС‚РѕСЂ: " + "\n" + author.getText() + "\n\n");
+						out.write("Р–Р°РЅСЂ: " + "\n" + genre.getText() + "\n\n");
+						out.write("Р‘СЂРѕР№ СЃС‚СЂР°РЅРёС†Рё: " + "\n" + pages.getText() + "\n\n");
+						out.write("Р—Р°РїРѕС‡РЅР°С‚Р° РЅР°: " + "\n" + date1.getText() + "\n\n");
+						out.write("Р—Р°РІСЉСЂС€РµРЅР° РЅР°: " + "\n" + date2.getText() + "\n\n");
+						out.write("РћС†РµРЅРєР°: " + "\n" + rating.getText() + "/5" + "\n\n");
+						out.write("Р“РµСЂРѕРё: " + "\n" + characters.getText() + "\n\n");
+						out.write("Р РµР·СЋРјРµ: " + "\n" + summary.getText() + "\n\n");
+						out.write("Р¦РёС‚Р°С‚Рё: " + "\n" + quotes.getText() + "\n\n");
+						out.write("РњРЅРµРЅРёРµ: " + "\n" +  opinion.getText() + "\n\n");
 					}
 					out.close();
 				} catch (IOException e1) {
@@ -189,19 +189,19 @@ public class readingdiary extends JFrame {
 		btnDown.setBorder(new RoundedBorder(20));
 		
 		lblGenre = new JLabel("Genre:");
-		lblGenre.setForeground(SystemColor.desktop);
+		lblGenre.setForeground(Color.BLACK);
 		lblGenre.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblGenre.setBounds(6, 174, 61, 16);
 		contentPane.add(lblGenre);
 		
 		lblAuthor = new JLabel("Author:");
-		lblAuthor.setForeground(SystemColor.desktop);
+		lblAuthor.setForeground(Color.BLACK);
 		lblAuthor.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblAuthor.setBounds(6, 107, 61, 16);
 		contentPane.add(lblAuthor);
 		
 		lblPages = new JLabel("Number of Pages:");
-		lblPages.setForeground(SystemColor.desktop);
+		lblPages.setForeground(Color.BLACK);
 		lblPages.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPages.setBounds(6, 246, 117, 16);
 		contentPane.add(lblPages);
@@ -212,31 +212,31 @@ public class readingdiary extends JFrame {
 		pages.setColumns(10);
 		
 		lblSummary = new JLabel("Summary:");
-		lblSummary.setForeground(SystemColor.desktop);
+		lblSummary.setForeground(Color.BLACK);
 		lblSummary.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblSummary.setBounds(350, 32, 84, 16);
 		contentPane.add(lblSummary);
 		
 		lblOpinion = new JLabel("Opinion:");
-		lblOpinion.setForeground(SystemColor.desktop);
+		lblOpinion.setForeground(Color.BLACK);
 		lblOpinion.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblOpinion.setBounds(350, 425, 138, 16);
 		contentPane.add(lblOpinion);
 		
 		lblCharacters = new JLabel("Characters:");
-		lblCharacters.setForeground(SystemColor.desktop);
+		lblCharacters.setForeground(Color.BLACK);
 		lblCharacters.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblCharacters.setBounds(6, 425, 84, 16);
 		contentPane.add(lblCharacters);
 		
 		lblDate1 = new JLabel("Date Started:");
-		lblDate1.setForeground(SystemColor.desktop);
+		lblDate1.setForeground(Color.BLACK);
 		lblDate1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblDate1.setBounds(6, 292, 92, 16);
 		contentPane.add(lblDate1);
 		
 		lblDate2 = new JLabel("Date Finished:");
-		lblDate2.setForeground(SystemColor.desktop);
+		lblDate2.setForeground(Color.BLACK);
 		lblDate2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblDate2.setBounds(6, 339, 102, 16);
 		contentPane.add(lblDate2);
@@ -309,7 +309,7 @@ public class readingdiary extends JFrame {
 		opinion.setLineWrap(true);
 		
 		lblRating = new JLabel("Rating:");
-		lblRating.setForeground(SystemColor.desktop);
+		lblRating.setForeground(Color.BLACK);
 		lblRating.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblRating.setBounds(6, 383, 61, 16);
 		contentPane.add(lblRating);
@@ -320,9 +320,9 @@ public class readingdiary extends JFrame {
 		contentPane.add(rating);
 		
 		rating1 = new JLabel("/5");
-		rating1.setForeground(SystemColor.desktop);
+		rating1.setForeground(Color.BLACK);
 		rating1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		rating1.setBounds(100, 383, 26, 16);
+		rating1.setBounds(89, 383, 26, 16);
 		contentPane.add(rating1);
 		
 		scrollPane_6 = new JScrollPane();
@@ -335,7 +335,7 @@ public class readingdiary extends JFrame {
 		scrollPane_6.setViewportView(quotes);
 		
 		lblQuotes = new JLabel("Quotes:");
-		lblQuotes.setForeground(SystemColor.desktop);
+		lblQuotes.setForeground(Color.BLACK);
 		lblQuotes.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblQuotes.setBounds(350, 269, 84, 16);
 		contentPane.add(lblQuotes);
@@ -347,18 +347,18 @@ public class readingdiary extends JFrame {
 				
 				if (btnBg.getText().equals("BG")) {
 					btnBg.setText("EN");
-					lblTitle.setText("Заглавие:");
-					lblAuthor.setText("Автор:");
-					lblGenre.setText("Жанр:");
-					lblPages.setText("Брой страници:");
-					lblDate1.setText("Започната на:");
-					lblDate2.setText("Завършена на:");
-					lblRating.setText("Оценка:");
-					lblCharacters.setText("Герои:");
-					lblSummary.setText("Резюме:");
-					lblQuotes.setText("Цитати:");
-					lblOpinion.setText("Лично мнение:");
-					btnDown.setText("Изтегли");
+					lblTitle.setText("Р—Р°РіР»Р°РІРёРµ:");
+					lblAuthor.setText("РђРІС‚РѕСЂ:");
+					lblGenre.setText("Р–Р°РЅСЂ:");
+					lblPages.setText("Р‘СЂРѕР№ СЃС‚СЂР°РЅРёС†Рё:");
+					lblDate1.setText("Р—Р°РїРѕС‡РЅР°С‚Р° РЅР°:");
+					lblDate2.setText("Р—Р°РІСЉСЂС€РµРЅР° РЅР°:");
+					lblRating.setText("РћС†РµРЅРєР°:");
+					lblCharacters.setText("Р“РµСЂРѕРё:");
+					lblSummary.setText("Р РµР·СЋРјРµ:");
+					lblQuotes.setText("Р¦РёС‚Р°С‚Рё:");
+					lblOpinion.setText("РњРЅРµРЅРёРµ:");
+					btnDown.setText("РР·С‚РµРіР»Рё");
 					btnBg.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/en.png")));
 				} else if (btnBg.getText().equals("EN")) {
 					btnBg.setText("BG");
@@ -390,8 +390,9 @@ public class readingdiary extends JFrame {
 
 		
 		label = new JLabel("");
-		label.setBounds(0, 0, 639, 609);
+		label.setBounds(0, 0, 650, 623);
 		contentPane.add(label);
 		label.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/readingdiary.jpg")));
+		
 	}
 }

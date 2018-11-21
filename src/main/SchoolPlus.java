@@ -51,6 +51,9 @@ public class SchoolPlus extends JFrame {
 	private JButton btnBg;
 	private JButton btnSave;
 	private JButton btnReset;
+	private JLabel lblReadingDiary;
+	private JButton btnQuadEq;
+	private JLabel lblQuadraticEquation;
 
 	/**
 	 * Launch the application.
@@ -86,6 +89,12 @@ public class SchoolPlus extends JFrame {
 		Font newFont = new Font(attributes);
 
 		JRadioButton btn1 = new JRadioButton("");
+		btn1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btn1.isSelected() == true)
+					txt1.setFont(newFont);
+			}
+		});
 		btn1.setBackground(Color.WHITE);
 		btn1.setBounds(356, 70, 28, 23);
 		contentPane.add(btn1);
@@ -124,7 +133,7 @@ public class SchoolPlus extends JFrame {
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (txt1.getText() != null)
+				/*if (txt1.getText() != null)
 					txt1.setEditable(false);
 				if (txt2.getText() != null)
 					txt2.setEditable(false);
@@ -137,7 +146,7 @@ public class SchoolPlus extends JFrame {
 				if (txt6.getText() != null)
 					txt6.setEditable(false);
 				if (txt7.getText() != null)
-					txt7.setEditable(false);
+					txt7.setEditable(false);*/
 
 				if (btn1.isSelected() == true)
 					txt1.setFont(newFont);
@@ -351,6 +360,31 @@ public class SchoolPlus extends JFrame {
 				TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pnlMaths.setBounds(715, 78, 296, 239);
 		contentPane.add(pnlMaths);
+		
+		btnQuadEq = new JButton("");
+		btnQuadEq.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					QuadraticEquation frame = new QuadraticEquation();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnQuadEq.setOpaque(false);
+		btnQuadEq.setFocusPainted(false);
+		btnQuadEq.setContentAreaFilled(false);
+		btnQuadEq.setBorderPainted(false);
+		btnQuadEq.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		btnQuadEq.setBounds(49, 23, 65, 67);
+		pnlMaths.add(btnQuadEq);
+		btnQuadEq.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/quadeqicn.png")));
+		
+		
+		lblQuadraticEquation = new JLabel("Quadratic Equation");
+		lblQuadraticEquation.setBounds(22, 92, 120, 16);
+		pnlMaths.add(lblQuadraticEquation);
 
 		pnlScience = new JPanel();
 		pnlScience.setBackground(new Color(255, 250, 250));
@@ -384,16 +418,16 @@ public class SchoolPlus extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (btnBg.getText().equals("BG")) {
 					btnBg.setText("EN");
-					pnlLiterature.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Език",
+					pnlLiterature.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "пїЅпїЅпїЅпїЅ",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlHistGeo.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
-							"История/География", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					pnlMaths.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Математика",
+							"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					pnlMaths.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Науки",
+					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "пїЅпїЅпїЅпїЅпїЅ",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					// btnSave.setText("Запази");
-					// btnReset.setText("Премахни");
+					// btnSave.setText("пїЅпїЅпїЅпїЅпїЅпїЅ");
+					// btnReset.setText("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 				} else if (btnBg.getText().equals("EN")) {
 					btnBg.setText("BG");
 					pnlLiterature.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Language",
@@ -413,7 +447,7 @@ public class SchoolPlus extends JFrame {
 		contentPane.add(btnBg);
 
 		JButton btnReadingDiary = new JButton("");
-		btnReadingDiary.setBounds(22, 24, 65, 67);
+		btnReadingDiary.setBounds(31, 24, 65, 67);
 		pnlLiterature.add(btnReadingDiary);
 		btnReadingDiary.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -432,5 +466,9 @@ public class SchoolPlus extends JFrame {
 		btnReadingDiary.setBorderPainted(false);
 		btnReadingDiary.setContentAreaFilled(false);
 		btnReadingDiary.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		
+		lblReadingDiary = new JLabel("Reading Diary");
+		lblReadingDiary.setBounds(22, 103, 87, 16);
+		pnlLiterature.add(lblReadingDiary);
 	}
 }
