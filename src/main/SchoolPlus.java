@@ -13,10 +13,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 import java.awt.event.ActionListener;
 import java.awt.font.TextAttribute;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Map;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -49,11 +54,13 @@ public class SchoolPlus extends JFrame {
 	private JPanel pnlMaths;
 	private JLabel label_1;
 	private JButton btnBg;
-	private JButton btnSave;
 	private JButton btnReset;
 	private JLabel lblReadingDiary;
 	private JButton btnQuadEq;
 	private JLabel lblQuadraticEquation;
+	private JLabel lblNotes;
+	private JButton btnSave;
+	private JTextArea txtNotes;
 
 	/**
 	 * Launch the application.
@@ -91,7 +98,6 @@ public class SchoolPlus extends JFrame {
 		JRadioButton btn1 = new JRadioButton("");
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (btn1.isSelected() == true)
 					txt1.setFont(newFont);
 			}
 		});
@@ -100,135 +106,66 @@ public class SchoolPlus extends JFrame {
 		contentPane.add(btn1);
 
 		JRadioButton btn2 = new JRadioButton("");
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txt2.setFont(newFont);
+			}
+		});
 		btn2.setBackground(Color.WHITE);
 		btn2.setBounds(356, 100, 28, 23);
 		contentPane.add(btn2);
 
 		JRadioButton btn3 = new JRadioButton("");
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txt3.setFont(newFont);
+			}
+		});
 		btn3.setBackground(Color.WHITE);
 		btn3.setBounds(356, 130, 28, 23);
 		contentPane.add(btn3);
 
 		JRadioButton btn4 = new JRadioButton("");
+		btn4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txt4.setFont(newFont);
+			}
+		});
 		btn4.setBackground(Color.WHITE);
 		btn4.setBounds(356, 160, 28, 23);
 		contentPane.add(btn4);
 
 		JRadioButton btn5 = new JRadioButton("");
+		btn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txt5.setFont(newFont);
+			}
+		});
 		btn5.setBackground(Color.WHITE);
 		btn5.setBounds(356, 190, 28, 23);
 		contentPane.add(btn5);
 
 		JRadioButton btn6 = new JRadioButton("");
+		btn6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txt6.setFont(newFont);
+			}
+		});
 		btn6.setBackground(Color.WHITE);
 		btn6.setBounds(356, 220, 28, 23);
 		contentPane.add(btn6);
 
 		JRadioButton btn7 = new JRadioButton("");
+		btn7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txt7.setFont(newFont);
+			}
+		});
 		btn7.setBackground(Color.WHITE);
 		btn7.setBounds(356, 250, 28, 23);
 		contentPane.add(btn7);
 
-		btnSave = new JButton("");
-		btnSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				/*if (txt1.getText() != null)
-					txt1.setEditable(false);
-				if (txt2.getText() != null)
-					txt2.setEditable(false);
-				if (txt3.getText() != null)
-					txt3.setEditable(false);
-				if (txt4.getText() != null)
-					txt4.setEditable(false);
-				if (txt5.getText() != null)
-					txt5.setEditable(false);
-				if (txt6.getText() != null)
-					txt6.setEditable(false);
-				if (txt7.getText() != null)
-					txt7.setEditable(false);*/
-
-				if (btn1.isSelected() == true)
-					txt1.setFont(newFont);
-				if (btn2.isSelected() == true)
-					txt2.setFont(newFont);
-				if (btn3.isSelected() == true)
-					txt3.setFont(newFont);
-				if (btn4.isSelected() == true)
-					txt4.setFont(newFont);
-				if (btn5.isSelected() == true)
-					txt5.setFont(newFont);
-				if (btn6.isSelected() == true)
-					txt6.setFont(newFont);
-				if (btn7.isSelected() == true)
-					txt7.setFont(newFont);
-
-				// if (btn1.isSelected() == true) txt1.setVisible(false);
-				// if (btn1.isSelected() == true) btn1.setVisible(false);
-				// if (btn2.isSelected() == true) txt2.setVisible(false);
-				// if (btn2.isSelected() == true) btn2.setVisible(false);
-				// if (btn3.isSelected() == true) txt3.setVisible(false);
-				// if (btn3.isSelected() == true) btn3.setVisible(false);
-				// if (btn4.isSelected() == true) txt4.setVisible(false);
-				// if (btn4.isSelected() == true) btn4.setVisible(false);
-				// if (btn5.isSelected() == true) txt5.setVisible(false);
-				// if (btn5.isSelected() == true) btn5.setVisible(false);
-				// if (btn6.isSelected() == true) txt6.setVisible(false);
-				// if (btn6.isSelected() == true) btn6.setVisible(false);
-				// if (btn7.isSelected() == true) txt7.setVisible(false);
-				// if (btn7.isSelected() == true) btn7.setVisible(false);
-
-				if (txt1.getText().equals("")) {
-					txt1.setEditable(true);
-				} else {
-					txt1.setEditable(false);
-				}
-
-				if (txt2.getText().equals("")) {
-					txt2.setEditable(true);
-				} else {
-					txt2.setEditable(false);
-				}
-
-				if (txt3.getText().equals("")) {
-					txt3.setEditable(true);
-				} else {
-					txt3.setEditable(false);
-				}
-
-				if (txt4.getText().equals("")) {
-					txt4.setEditable(true);
-				} else {
-					txt4.setEditable(false);
-				}
-
-				if (txt5.getText().equals("")) {
-					txt5.setEditable(true);
-				} else {
-					txt5.setEditable(false);
-				}
-
-				if (txt6.getText().equals("")) {
-					txt6.setEditable(true);
-				} else {
-					txt6.setEditable(false);
-				}
-
-				if (txt7.getText().equals("")) {
-					txt7.setEditable(true);
-				} else {
-					txt7.setEditable(false);
-				}
-			}
-		});
-		btnSave.setBounds(356, 290, 140, 30);
-		contentPane.add(btnSave);
-		btnSave.setOpaque(false);
-		btnSave.setFocusPainted(false);
-		btnSave.setBorderPainted(false);
-		btnSave.setContentAreaFilled(false);
-		btnSave.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		btnSave.setIcon((new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/save.png"))));
+		
 
 		btnReset = new JButton("");
 		btnReset.addActionListener(new ActionListener() {
@@ -283,7 +220,7 @@ public class SchoolPlus extends JFrame {
 
 			}
 		});
-		btnReset.setBounds(547, 290, 140, 30);
+		btnReset.setBounds(453, 285, 140, 30);
 		contentPane.add(btnReset);
 		btnReset.setOpaque(false);
 		btnReset.setFocusPainted(false);
@@ -336,14 +273,18 @@ public class SchoolPlus extends JFrame {
 		contentPane.add(txt7);
 
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(356, 330, 331, 239);
+		scrollPane.setBounds(356, 325, 331, 239);
 		contentPane.add(scrollPane);
 
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
-		textArea.setBackground(new Color(240, 255, 255));
+		txtNotes = new JTextArea();
+		scrollPane.setViewportView(txtNotes);
+		txtNotes.setLineWrap(true);
+		txtNotes.setWrapStyleWord(true);
+		txtNotes.setBackground(new Color(240, 255, 255));
+		
+		lblNotes = new JLabel("Notes");
+		lblNotes.setHorizontalAlignment(SwingConstants.CENTER);
+		scrollPane.setColumnHeaderView(lblNotes);
 
 		pnlLiterature = new JPanel();
 		pnlLiterature.setBackground(new Color(255, 250, 250));
@@ -403,29 +344,27 @@ public class SchoolPlus extends JFrame {
 		contentPane.add(pnlHistGeo);
 
 		JLabel lblSchoolplus = new JLabel("SchoolPlus");
-		lblSchoolplus.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 50));
+		lblSchoolplus.setFont(new Font("Lucida Bright", Font.BOLD | Font.ITALIC, 50));
 		lblSchoolplus.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSchoolplus.setBounds(257, 11, 552, 52);
 		contentPane.add(lblSchoolplus);
 
-		label_1 = new JLabel("");
-		label_1.setBounds(0, 0, 1044, 596);
-		contentPane.add(label_1);
-		label_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/bg.jpg")));
+		
 
 		btnBg = new JButton("BG");
 		btnBg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (btnBg.getText().equals("BG")) {
 					btnBg.setText("EN");
-					pnlLiterature.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "����",
+					pnlLiterature.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Хуманитарни науки",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlHistGeo.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
-							"�������/���������", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					pnlMaths.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "����������",
+							"Социални науки", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					pnlMaths.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Математика",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "�����",
+					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Науки",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					lblNotes.setText("Бележки");
 					// btnSave.setText("������");
 					// btnReset.setText("��������");
 				} else if (btnBg.getText().equals("EN")) {
@@ -438,6 +377,7 @@ public class SchoolPlus extends JFrame {
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Science",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					lblNotes.setText("Notes");
 					// btnSave.setText("Save");
 					// btnReset.setText("Reset");
 				}
@@ -470,5 +410,43 @@ public class SchoolPlus extends JFrame {
 		lblReadingDiary = new JLabel("Reading Diary");
 		lblReadingDiary.setBounds(22, 103, 87, 16);
 		pnlLiterature.add(lblReadingDiary);
+		
+		btnSave = new JButton("");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fc = new JFileChooser();
+				int returnValue = fc.showSaveDialog(contentPane);
+				try {
+					BufferedWriter out = new BufferedWriter(
+							new OutputStreamWriter(
+									new FileOutputStream(
+											fc.getSelectedFile().getPath()
+											), 
+									"UTF-8")
+							);
+					out.write(txtNotes.getText());
+					out.close();
+				} catch (IOException e1) {
+					
+					e1.printStackTrace();
+				}
+				
+				
+
+			}
+		});
+		btnSave.setOpaque(false);
+		btnSave.setFocusPainted(false);
+		btnSave.setContentAreaFilled(false);
+		btnSave.setBorderPainted(false);
+		btnSave.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		btnSave.setBounds(453, 567, 140, 30);
+		contentPane.add(btnSave);
+		btnSave.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/save.png"))));
+		
+		label_1 = new JLabel("");
+		label_1.setBounds(0, 0, 1064, 600);
+		contentPane.add(label_1);
+		label_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/bg.jpg")));
 	}
-}
+} 
