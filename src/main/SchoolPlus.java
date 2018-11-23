@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.Calendar;
 import java.util.Map;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -58,9 +59,7 @@ public class SchoolPlus extends JFrame {
 	private JPanel pnlMaths;
 	private JLabel label_1;
 	private JButton btnBg;
-	private JLabel lblReadingDiary;
 	private JButton btnQuadEq;
-	private JLabel lblQuadraticEquation;
 	private JLabel lblNotes;
 	private JTextArea txtNotes;
 	private JButton btnReset;
@@ -114,7 +113,7 @@ public class SchoolPlus extends JFrame {
 	public SchoolPlus() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1050, 625);
+		setBounds(100, 100, 1050, 635);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -269,6 +268,7 @@ public class SchoolPlus extends JFrame {
 		contentPane.add(pnlMaths);
 
 		btnQuadEq = new JButton("");
+		btnQuadEq.setToolTipText("Quadratic Equation");
 		btnQuadEq.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -284,14 +284,9 @@ public class SchoolPlus extends JFrame {
 		btnQuadEq.setContentAreaFilled(false);
 		btnQuadEq.setBorderPainted(false);
 		btnQuadEq.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		btnQuadEq.setBounds(56, 23, 65, 67);
+		btnQuadEq.setBounds(10, 11, 65, 67);
 		pnlMaths.add(btnQuadEq);
 		btnQuadEq.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/quadeqicn.png")));
-
-		lblQuadraticEquation = new JLabel("Quadratic Equation");
-		lblQuadraticEquation.setHorizontalAlignment(SwingConstants.CENTER);
-		lblQuadraticEquation.setBounds(6, 92, 160, 16);
-		pnlMaths.add(lblQuadraticEquation);
 
 		pnlScience = new JPanel();
 		pnlScience.setBackground(new Color(255, 250, 250));
@@ -331,8 +326,7 @@ public class SchoolPlus extends JFrame {
 					lblNotes.setText("Бележки");
 					btnReset.setText("Нулиране");
 					btnSave.setText("Запази");
-					lblReadingDiary.setText("Читателски дневник");
-					lblQuadraticEquation.setText("Квадратно уравнение");
+					
 					// btnSave.setText("������");
 					// btnReset.setText("��������");
 				} else if (btnBg.getText().equals("EN")) {
@@ -348,8 +342,7 @@ public class SchoolPlus extends JFrame {
 					lblNotes.setText("Notes");
 					btnReset.setText("Reset");
 					btnSave.setText("Save");
-					lblReadingDiary.setText("Reading Diary");
-					lblQuadraticEquation.setText("Quadratic Equation");
+					
 					// btnSave.setText("Save");
 					// btnReset.setText("Reset");
 				}
@@ -359,7 +352,8 @@ public class SchoolPlus extends JFrame {
 		contentPane.add(btnBg);
 
 		btnReadingDiary = new JButton("");
-		btnReadingDiary.setBounds(43, 25, 65, 67);
+		btnReadingDiary.setToolTipText("Reading Diary");
+		btnReadingDiary.setBounds(10, 11, 65, 67);
 		pnlLiterature.add(btnReadingDiary);
 		btnReadingDiary.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -379,11 +373,6 @@ public class SchoolPlus extends JFrame {
 		btnReadingDiary.setBorderPainted(false);
 		btnReadingDiary.setContentAreaFilled(false);
 		btnReadingDiary.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-
-		lblReadingDiary = new JLabel("Reading Diary");
-		lblReadingDiary.setHorizontalAlignment(SwingConstants.CENTER);
-		lblReadingDiary.setBounds(6, 103, 139, 16);
-		pnlLiterature.add(lblReadingDiary);
 
 		btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
@@ -415,8 +404,8 @@ public class SchoolPlus extends JFrame {
 		});
 		btnReset.setForeground(Color.BLACK);
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnReset.setBorder(new RoundedBorder(20));
-		btnReset.setBackground(Color.PINK);
+		btnReset.setBorder(new RoundedBorder(15));
+		btnReset.setBackground(new Color(245, 245, 245));
 		btnReset.setBounds(438, 285, 165, 30);
 		contentPane.add(btnReset);
 
@@ -438,8 +427,8 @@ public class SchoolPlus extends JFrame {
 		});
 		btnSave.setForeground(Color.BLACK);
 		btnSave.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnSave.setBorder(new RoundedBorder(20));
-		btnSave.setBackground(Color.PINK);
+		btnSave.setBorder(new RoundedBorder(15));
+		btnSave.setBackground(new Color(245, 245, 245));
 		btnSave.setBounds(438, 567, 165, 30);
 		contentPane.add(btnSave);
 
@@ -460,10 +449,14 @@ public class SchoolPlus extends JFrame {
 		});
 		btnSettings.setBounds(977, 6, 67, 29);
 		contentPane.add(btnSettings);
-
 		label_1 = new JLabel("");
 		label_1.setBounds(0, 0, 1065, 613);
 		contentPane.add(label_1);
 		label_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/bg.jpg")));
+		
+		
+		
+	
+		
 	}
 }
