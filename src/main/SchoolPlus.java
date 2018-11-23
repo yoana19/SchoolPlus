@@ -1,14 +1,16 @@
 package main;
 
-import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -27,6 +29,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.border.MatteBorder;
@@ -54,13 +58,15 @@ public class SchoolPlus extends JFrame {
 	private JPanel pnlMaths;
 	private JLabel label_1;
 	private JButton btnBg;
-	private JButton btnReset;
 	private JLabel lblReadingDiary;
 	private JButton btnQuadEq;
 	private JLabel lblQuadraticEquation;
 	private JLabel lblNotes;
-	private JButton btnSave;
 	private JTextArea txtNotes;
+	private JButton btnReset;
+	private JButton btnSave;
+	private JButton btnReadingDiary;
+	private JButton btnSettings;
 
 	/**
 	 * Launch the application.
@@ -81,6 +87,30 @@ public class SchoolPlus extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
+	
+	
+	private static class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+		}
+	}
+
 	public SchoolPlus() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -98,7 +128,7 @@ public class SchoolPlus extends JFrame {
 		JRadioButton btn1 = new JRadioButton("");
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					txt1.setFont(newFont);
+				txt1.setFont(newFont);
 			}
 		});
 		btn1.setBackground(Color.WHITE);
@@ -165,70 +195,6 @@ public class SchoolPlus extends JFrame {
 		btn7.setBounds(356, 250, 28, 23);
 		contentPane.add(btn7);
 
-		
-
-		btnReset = new JButton("");
-		btnReset.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				txt1.setVisible(true);
-				txt2.setVisible(true);
-				txt3.setVisible(true);
-				txt4.setVisible(true);
-				txt5.setVisible(true);
-				txt6.setVisible(true);
-				txt7.setVisible(true);
-
-				txt1.setEditable(true);
-				txt2.setEditable(true);
-				txt3.setEditable(true);
-				txt4.setEditable(true);
-				txt5.setEditable(true);
-				txt6.setEditable(true);
-				txt7.setEditable(true);
-
-				txt1.setText("");
-				txt2.setText("");
-				txt3.setText("");
-				txt4.setText("");
-				txt5.setText("");
-				txt6.setText("");
-				txt7.setText("");
-
-				btn1.setVisible(true);
-				btn2.setVisible(true);
-				btn3.setVisible(true);
-				btn4.setVisible(true);
-				btn5.setVisible(true);
-				btn6.setVisible(true);
-				btn7.setVisible(true);
-
-				if (btn1.isSelected() == true)
-					btn1.setSelected(false);
-				if (btn2.isSelected() == true)
-					btn2.setSelected(false);
-				if (btn3.isSelected() == true)
-					btn3.setSelected(false);
-				if (btn4.isSelected() == true)
-					btn4.setSelected(false);
-				if (btn5.isSelected() == true)
-					btn5.setSelected(false);
-				if (btn6.isSelected() == true)
-					btn6.setSelected(false);
-				if (btn7.isSelected() == true)
-					btn7.setSelected(false);
-
-			}
-		});
-		btnReset.setBounds(453, 285, 140, 30);
-		contentPane.add(btnReset);
-		btnReset.setOpaque(false);
-		btnReset.setFocusPainted(false);
-		btnReset.setBorderPainted(false);
-		btnReset.setContentAreaFilled(false);
-		btnReset.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		btnReset.setIcon((new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/reset.png"))));
-
 		txt1 = new JTextArea();
 		txt1.setLineWrap(true);
 		txt1.setBackground(SystemColor.menu);
@@ -281,7 +247,7 @@ public class SchoolPlus extends JFrame {
 		txtNotes.setLineWrap(true);
 		txtNotes.setWrapStyleWord(true);
 		txtNotes.setBackground(new Color(240, 255, 255));
-		
+
 		lblNotes = new JLabel("Notes");
 		lblNotes.setHorizontalAlignment(SwingConstants.CENTER);
 		scrollPane.setColumnHeaderView(lblNotes);
@@ -301,7 +267,7 @@ public class SchoolPlus extends JFrame {
 				TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pnlMaths.setBounds(715, 78, 296, 239);
 		contentPane.add(pnlMaths);
-		
+
 		btnQuadEq = new JButton("");
 		btnQuadEq.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -318,13 +284,13 @@ public class SchoolPlus extends JFrame {
 		btnQuadEq.setContentAreaFilled(false);
 		btnQuadEq.setBorderPainted(false);
 		btnQuadEq.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		btnQuadEq.setBounds(49, 23, 65, 67);
+		btnQuadEq.setBounds(56, 23, 65, 67);
 		pnlMaths.add(btnQuadEq);
 		btnQuadEq.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/quadeqicn.png")));
-		
-		
+
 		lblQuadraticEquation = new JLabel("Quadratic Equation");
-		lblQuadraticEquation.setBounds(22, 92, 120, 16);
+		lblQuadraticEquation.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuadraticEquation.setBounds(6, 92, 160, 16);
 		pnlMaths.add(lblQuadraticEquation);
 
 		pnlScience = new JPanel();
@@ -349,22 +315,24 @@ public class SchoolPlus extends JFrame {
 		lblSchoolplus.setBounds(257, 11, 552, 52);
 		contentPane.add(lblSchoolplus);
 
-		
-
 		btnBg = new JButton("BG");
 		btnBg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (btnBg.getText().equals("BG")) {
 					btnBg.setText("EN");
-					pnlLiterature.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Хуманитарни науки",
+					pnlLiterature.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
+							"Хуманитарни науки", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					pnlHistGeo.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Социални науки",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					pnlHistGeo.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
-							"Социални науки", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlMaths.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Математика",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Науки",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					lblNotes.setText("Бележки");
+					btnReset.setText("Нулиране");
+					btnSave.setText("Запази");
+					lblReadingDiary.setText("Читателски дневник");
+					lblQuadraticEquation.setText("Квадратно уравнение");
 					// btnSave.setText("������");
 					// btnReset.setText("��������");
 				} else if (btnBg.getText().equals("EN")) {
@@ -378,6 +346,10 @@ public class SchoolPlus extends JFrame {
 					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Science",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					lblNotes.setText("Notes");
+					btnReset.setText("Reset");
+					btnSave.setText("Save");
+					lblReadingDiary.setText("Reading Diary");
+					lblQuadraticEquation.setText("Quadratic Equation");
 					// btnSave.setText("Save");
 					// btnReset.setText("Reset");
 				}
@@ -386,8 +358,8 @@ public class SchoolPlus extends JFrame {
 		btnBg.setBounds(977, 573, 67, 23);
 		contentPane.add(btnBg);
 
-		JButton btnReadingDiary = new JButton("");
-		btnReadingDiary.setBounds(31, 24, 65, 67);
+		btnReadingDiary = new JButton("");
+		btnReadingDiary.setBounds(43, 25, 65, 67);
 		pnlLiterature.add(btnReadingDiary);
 		btnReadingDiary.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -400,53 +372,98 @@ public class SchoolPlus extends JFrame {
 
 			}
 		});
-		btnReadingDiary.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/readingdiary.png"))));
+		btnReadingDiary
+				.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/readingdiary.png"))));
 		btnReadingDiary.setOpaque(false);
 		btnReadingDiary.setFocusPainted(false);
 		btnReadingDiary.setBorderPainted(false);
 		btnReadingDiary.setContentAreaFilled(false);
 		btnReadingDiary.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		
+
 		lblReadingDiary = new JLabel("Reading Diary");
-		lblReadingDiary.setBounds(22, 103, 87, 16);
+		lblReadingDiary.setHorizontalAlignment(SwingConstants.CENTER);
+		lblReadingDiary.setBounds(6, 103, 139, 16);
 		pnlLiterature.add(lblReadingDiary);
-		
-		btnSave = new JButton("");
+
+		btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txt1.setText("");
+				txt2.setText("");
+				txt3.setText("");
+				txt4.setText("");
+				txt5.setText("");
+				txt6.setText("");
+				txt7.setText("");
+
+				if (btn1.isSelected() == true)
+					btn1.setSelected(false);
+				if (btn2.isSelected() == true)
+					btn2.setSelected(false);
+				if (btn3.isSelected() == true)
+					btn3.setSelected(false);
+				if (btn4.isSelected() == true)
+					btn4.setSelected(false);
+				if (btn5.isSelected() == true)
+					btn5.setSelected(false);
+				if (btn6.isSelected() == true)
+					btn6.setSelected(false);
+				if (btn7.isSelected() == true)
+					btn7.setSelected(false);
+
+			}
+		});
+		btnReset.setForeground(Color.BLACK);
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnReset.setBorder(new RoundedBorder(20));
+		btnReset.setBackground(Color.PINK);
+		btnReset.setBounds(438, 285, 165, 30);
+		contentPane.add(btnReset);
+
+		btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fc = new JFileChooser();
 				int returnValue = fc.showSaveDialog(contentPane);
 				try {
 					BufferedWriter out = new BufferedWriter(
-							new OutputStreamWriter(
-									new FileOutputStream(
-											fc.getSelectedFile().getPath()
-											), 
-									"UTF-8")
-							);
+							new OutputStreamWriter(new FileOutputStream(fc.getSelectedFile().getPath()), "UTF-8"));
 					out.write(txtNotes.getText());
 					out.close();
 				} catch (IOException e1) {
-					
+
 					e1.printStackTrace();
 				}
-				
-				
-
 			}
 		});
-		btnSave.setOpaque(false);
-		btnSave.setFocusPainted(false);
-		btnSave.setContentAreaFilled(false);
-		btnSave.setBorderPainted(false);
-		btnSave.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		btnSave.setBounds(453, 567, 140, 30);
+		btnSave.setForeground(Color.BLACK);
+		btnSave.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnSave.setBorder(new RoundedBorder(20));
+		btnSave.setBackground(Color.PINK);
+		btnSave.setBounds(438, 567, 165, 30);
 		contentPane.add(btnSave);
-		btnSave.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/save.png"))));
+
 		
+		
+		btnSettings = new JButton("✐");
+		btnSettings.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
+		btnSettings.setToolTipText("Change Background");
+		btnSettings.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String[] names = { "/res/bg.jpg", "/res/bg1.jpg", "/res/bg2.jpg", "/res/bg3.jpg", "/res/bg4.jpg", "/res/bg5.jpg",};
+				String name = names[(int) (Math.random() * names.length)];
+				label_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource(name)));
+				 
+				
+			}
+		});
+		btnSettings.setBounds(977, 6, 67, 29);
+		contentPane.add(btnSettings);
+
 		label_1 = new JLabel("");
-		label_1.setBounds(0, 0, 1064, 600);
+		label_1.setBounds(0, 0, 1065, 613);
 		contentPane.add(label_1);
 		label_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/bg.jpg")));
 	}
-} 
+}
