@@ -1,6 +1,9 @@
 package main;
 
 import java.awt.Desktop;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -449,12 +452,27 @@ public class SchoolPlus extends JFrame {
 		});
 		btnSettings.setBounds(977, 6, 67, 29);
 		contentPane.add(btnSettings);
+		
+		JButton btnSdgsdg = new JButton("sdgsdg");
+		btnSdgsdg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+				/*String bip = "/res/hippetyhop.mp3";
+				Media hit = new Media(new File(bip).toURI().toString());
+				MediaPlayer mediaPlayer = new MediaPlayer(hit);
+				mediaPlayer.play();*/
+			}
+		});
+		btnSdgsdg.setBounds(10, 0, 89, 23);
+		contentPane.add(btnSdgsdg);
+		
+		
 		label_1 = new JLabel("");
 		label_1.setBounds(0, 0, 1065, 613);
 		contentPane.add(label_1);
 		label_1.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/bg.jpg")));
-		
-		
 		
 	
 		

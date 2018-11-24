@@ -51,7 +51,7 @@ public class QuadraticEquation extends JFrame {
 	public QuadraticEquation() {
 		setResizable(false);
 		setTitle("Quadratic Equation");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 335, 155);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
