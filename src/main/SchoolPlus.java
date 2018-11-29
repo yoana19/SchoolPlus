@@ -71,6 +71,7 @@ public class SchoolPlus extends JFrame {
 	private JButton btnFunc;
 	private JButton btnReader;
 	private JButton btnInterLiter;
+	private JButton btnRandomizer;
 
 	/**
 	 * Launch the application.
@@ -519,6 +520,28 @@ public class SchoolPlus extends JFrame {
 		btnInterLiter.setBounds(155, 15, 65, 67);
 		pnlLinguistics.add(btnInterLiter);
 		btnInterLiter.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/literatureicn.png"))));
+		
+		btnRandomizer = new JButton("");
+		btnRandomizer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					Randomizer frame = new Randomizer();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnRandomizer.setToolTipText("Reading Diary");
+		btnRandomizer.setOpaque(false);
+		btnRandomizer.setFocusPainted(false);
+		btnRandomizer.setContentAreaFilled(false);
+		btnRandomizer.setBorderPainted(false);
+		btnRandomizer.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		btnRandomizer.setBounds(221, 13, 65, 67);
+		pnlLinguistics.add(btnRandomizer);
 
 		btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
