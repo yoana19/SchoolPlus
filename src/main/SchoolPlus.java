@@ -69,6 +69,8 @@ public class SchoolPlus extends JFrame {
 	private JButton btnMultiCalc;
 	private JButton btnCalc;
 	private JButton btnFunc;
+	private JButton btnReader;
+	private JButton btnInterLiter;
 
 	/**
 	 * Launch the application.
@@ -90,7 +92,7 @@ public class SchoolPlus extends JFrame {
 	 * Create the frame.
 	 */
 
-	private static class RoundedBorder implements Border {
+		private static class RoundedBorder implements Border {
 
 		private int radius;
 
@@ -113,7 +115,7 @@ public class SchoolPlus extends JFrame {
 
 	public SchoolPlus() {
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1050, 635);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -404,25 +406,25 @@ public class SchoolPlus extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (btnBg.getText().equals("BG")) {
 					btnBg.setText("EN");
-					pnlLinguistics.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Лингвистика",
+					pnlLinguistics.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ð›Ð¸Ð½Ð³Ð²Ð¸Ñ�Ñ‚Ð¸ÐºÐ°",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlSocial.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
-							"Хуманитарни науки", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+							"Ð¥ÑƒÐ¼Ð°Ð½Ð¸Ñ‚Ð°Ñ€Ð½Ð¸ Ð½Ð°ÑƒÐºÐ¸", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlMathematics.setBorder(
-							new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Математика & информатика",
+							new TitledBorder(UIManager.getBorder("TitledBorder.border"), "ÐœÐ°Ñ‚ÐµÐ¼Ð°Ñ‚Ð¸ÐºÐ° & Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ð¸ÐºÐ°",
 									TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Природни науки",
+					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "ÐŸÑ€Ð¸Ñ€Ð¾Ð´Ð½Ð¸ Ð½Ð°ÑƒÐºÐ¸",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					lblNotes.setText("Бележки");
-					btnReset.setText("Нулиране");
-					btnSave.setText("Запази");
-					btnSettings.setToolTipText("Смени изображението");
-					btnGeoQuiz.setToolTipText("Тест по география");
-					btnReadingDiary.setToolTipText("Читателски дневник");
-					btnQuadEq.setToolTipText("Квадратно уравнение");
-					btnMultiCalc.setToolTipText("Научен калкулатор");
-					// btnSave.setText("������");
-					// btnReset.setText("��������");
+					lblNotes.setText("Ð‘ÐµÐ»ÐµÐ¶ÐºÐ¸");
+					btnReset.setText("Ð�ÑƒÐ»Ð¸Ñ€Ð°Ð½Ðµ");
+					btnSave.setText("Ð—Ð°Ð¿Ð°Ð·Ð¸");
+					btnSettings.setToolTipText("Ð¡Ð¼ÐµÐ½Ð¸ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸ÐµÑ‚Ð¾");
+					btnGeoQuiz.setToolTipText("Ð¢ÐµÑ�Ñ‚ Ð¿Ð¾ Ð³ÐµÐ¾Ð³Ñ€Ð°Ñ„Ð¸Ñ�");
+					btnReadingDiary.setToolTipText("Ð§Ð¸Ñ‚Ð°Ñ‚ÐµÐ»Ñ�ÐºÐ¸ Ð´Ð½ÐµÐ²Ð½Ð¸Ðº");
+					btnQuadEq.setToolTipText("ÐšÐ²Ð°Ð´Ñ€Ð°Ñ‚Ð½Ð¾ ÑƒÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ");
+					btnMultiCalc.setToolTipText("Ð�Ð°ÑƒÑ‡ÐµÐ½ ÐºÐ°Ð»ÐºÑƒÐ»Ð°Ñ‚Ð¾Ñ€");
+					// btnSave.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+					// btnReset.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 				} else if (btnBg.getText().equals("EN")) {
 					btnBg.setText("BG");
 					pnlLinguistics.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Linguistics",
@@ -452,7 +454,7 @@ public class SchoolPlus extends JFrame {
 
 		btnReadingDiary = new JButton("");
 		btnReadingDiary.setToolTipText("Reading Diary");
-		btnReadingDiary.setBounds(10, 11, 65, 67);
+		btnReadingDiary.setBounds(10, 13, 65, 67);
 		pnlLinguistics.add(btnReadingDiary);
 		btnReadingDiary.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -471,6 +473,52 @@ public class SchoolPlus extends JFrame {
 		btnReadingDiary.setBorderPainted(false);
 		btnReadingDiary.setContentAreaFilled(false);
 		btnReadingDiary.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		
+		btnReader = new JButton("");
+		btnReader.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					Reader frame = new Reader();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnReader.setToolTipText("Reading Diary");
+		btnReader.setOpaque(false);
+		btnReader.setFocusPainted(false);
+		btnReader.setContentAreaFilled(false);
+		btnReader.setBorderPainted(false);
+		btnReader.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		btnReader.setBounds(80, 15, 65, 67);
+		pnlLinguistics.add(btnReader);
+		btnReader.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/readericn.png"))));
+		
+		btnInterLiter = new JButton("");
+		btnInterLiter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					Literature frame = new Literature();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnInterLiter.setToolTipText("Reading Diary");
+		btnInterLiter.setOpaque(false);
+		btnInterLiter.setFocusPainted(false);
+		btnInterLiter.setContentAreaFilled(false);
+		btnInterLiter.setBorderPainted(false);
+		btnInterLiter.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		btnInterLiter.setBounds(155, 15, 65, 67);
+		pnlLinguistics.add(btnInterLiter);
+		btnInterLiter.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/literatureicn.png"))));
 
 		btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
@@ -530,7 +578,7 @@ public class SchoolPlus extends JFrame {
 		btnSave.setBounds(438, 567, 165, 30);
 		contentPane.add(btnSave);
 
-		btnSettings = new JButton("✐");
+		btnSettings = new JButton("âœ�");
 		btnSettings.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
 		btnSettings.setToolTipText("Change Background");
 		btnSettings.addActionListener(new ActionListener() {

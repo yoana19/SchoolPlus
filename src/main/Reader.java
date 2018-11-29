@@ -2,35 +2,72 @@ package main;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Insets;
+import java.awt.Toolkit;
 import java.util.Hashtable;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.JTextArea;
+import javax.swing.UIManager;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JScrollPane;
 
 public class Reader extends JFrame {
 
 	private JPanel contentPane;
-	private JComboBox comboBox_1;
-	private JButton Dracula;
+	private JLabel label;
+	private JTextArea textArea;
+	private JButton btnBg;
 
 	
 	
 	/**
 	 * Launch the application.
 	 */
+	
+	private static class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+		}
+	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,82 +85,87 @@ public class Reader extends JFrame {
 	 * Create the frame.
 	 */
 	public Reader() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 650);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 466, 645);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JTextArea textArea = new JTextArea();
+		
+		
+		JButton btnOpen = new JButton("Open");
+		btnOpen.setBackground(new Color(184, 134, 11));
+		btnOpen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JFileChooser fc = new JFileChooser();
+				int returnValue = fc.showOpenDialog(contentPane);
+				try {
+					if (returnValue == JFileChooser.APPROVE_OPTION) {
+						String fileContent = "";
+						
+						BufferedReader in = new BufferedReader(
+								new InputStreamReader(
+										new FileInputStream (
+										fc.getSelectedFile()),
+									"UTF-8"	));
+						String nextLine = in.readLine();
+						
+						while (nextLine != null) {
+							fileContent += nextLine + "\n";
+							nextLine = in.readLine();
+						} 
+						textArea.setText(fileContent);
+						
+					}
+				} catch (IOException e1) {
+					
+					
+					e1.printStackTrace();	
+				}
+				
+			}
+		});
+		btnOpen.setBounds(182, 549, 89, 23);
+		contentPane.add(btnOpen);
+		btnOpen.setBorder(new RoundedBorder(15));
+		
+		
+		
+		btnBg = new JButton("BG");
+		btnBg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btnBg.getText().equals("BG")) {
+					btnBg.setText("EN");
+					btnOpen.setText("Отвори");
+				} else if (btnBg.getText().equals("EN")) {
+					btnBg.setText("BG");
+					btnOpen.setText("Open");
+				}
+			}
+		});
+		btnBg.setBounds(400, 583, 50, 23);
+		contentPane.add(btnBg);
+		btnBg.setBackground(new Color(184, 134, 11));
+		btnBg.setBorder(new RoundedBorder(15));
+		
+		label = new JLabel("");
+		label.setBounds(0, 0, 454, 606);
+		contentPane.add(label);
+		label.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/reader.jpg")));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 21, 429, 494);
+		contentPane.add(scrollPane);
+		
+		textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		textArea.setBackground(new Color(255, 204, 153));
 		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
-		textArea.setBounds(10, 106, 429, 494);
-		contentPane.add(textArea);
-		textArea.setVisible(false);
+		textArea.setEditable(false);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"English", "\u0411\u044A\u043B\u0433\u0430\u0440\u0441\u043A\u0438"}));
-		comboBox.setBounds(10, 47, 107, 20);
-		contentPane.add(comboBox);
 		
-		comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(155, 47, 204, 20);
-		contentPane.add(comboBox_1);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(10, 90, 349, 510);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		Dracula = new JButton("");
-		Dracula.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-				
-				textArea.setVisible(true);
-				panel.setVisible(false);
-			
-				/*File file = new File("res/heh.txt");
-				BufferedReader reader = null;
-				try {
-					reader = new BufferedReader(new FileReader(file));
-					String text = null;
-					String savetext=null;
-						            		
-					while ((text = reader.readLine()) != null) {
-						savetext += text;
-					} 
-					textArea.setText(savetext);
-				}catch  (Exception e1) {
-					e1.printStackTrace();
-				}*/
-				
-				
-				StringBuilder result = new StringBuilder("");
-				ClassLoader cL = this.getClass().getClassLoader();
-				cL.getParent();
-				File file = new File(cL.getResource("gf.txt").getFile());
-
-				try {
-					Scanner scanner = new Scanner(file);
-					while (scanner.hasNextLine()) {
-						String line = scanner.nextLine();
-						result.append(line).append("\n");
-					}
-
-					scanner.close();
-
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				
-				textArea.append(result.toString());
-				
-				}
-		});
-		Dracula.setBounds(10, 11, 67, 87);
-		panel.add(Dracula);
 	}
 }

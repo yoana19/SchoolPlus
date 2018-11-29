@@ -54,7 +54,7 @@ public class QuadraticEquation extends JFrame {
 		setResizable(false);
 		setTitle("Quadratic Equation");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 335, 155);
+		setBounds(100, 100, 335, 161);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -124,7 +124,7 @@ public class QuadraticEquation extends JFrame {
 		lblVertex.setForeground(Color.WHITE);
 		lblVertex.setBounds(10, 113, 54, 14);
 		contentPane.add(lblVertex);
-		btnBg.setBounds(286, 0, 49, 29);
+		btnBg.setBounds(281, 0, 54, 29);
 		contentPane.add(btnBg);
 		
 		btnCalc = new JButton("Calculate");

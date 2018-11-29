@@ -17,6 +17,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
+import java.awt.Font;
 
 public class GeographyQuiz extends JFrame {
 	String massage = "";
@@ -47,7 +48,7 @@ public class GeographyQuiz extends JFrame {
 	 */
 	public GeographyQuiz() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 465, 330);
+		setBounds(100, 100, 480, 348);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -67,120 +68,151 @@ public class GeographyQuiz extends JFrame {
 		JRadioButton rbc1 = new JRadioButton("Russia");
 		pnl1.add(rbc1);
 		c.add(rbc1);
+		rbc1.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc7 = new JRadioButton("Austria");
 		pnl1.add(rbc7);
 		c.add(rbc7);
+		rbc7.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc3 = new JRadioButton("Macedonia");
 		pnl1.add(rbc3);
 		c.add(rbc3);
-
+		rbc3.setBackground(new Color(204,255,204));
+		
 		JRadioButton rbc11 = new JRadioButton("UK");
 		pnl1.add(rbc11);
 		c.add(rbc11);
-
+		rbc11.setBackground(new Color(204,255,204));
+		
+		
 		JRadioButton rbc2 = new JRadioButton("Bulgaria");
 		pnl1.add(rbc2);
 		c.add(rbc2);
+		rbc2.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc12 = new JRadioButton("Spain");
 		pnl1.add(rbc12);
 		c.add(rbc12);
+		rbc12.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc5 = new JRadioButton("Greece");
 		pnl1.add(rbc5);
 		c.add(rbc5);
-
+		rbc5.setBackground(new Color(204,255,204));
+		
 		JRadioButton rbc4 = new JRadioButton("Turkey");
 		pnl1.add(rbc4);
 		c.add(rbc4);
+		rbc4.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc10 = new JRadioButton("Italy");
 		pnl1.add(rbc10);
 		c.add(rbc10);
+		rbc10.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc6 = new JRadioButton("Albania");
 		pnl1.add(rbc6);
 		c.add(rbc6);
-
+		rbc6.setBackground(new Color(204,255,204));
+		
 		JRadioButton rbc8 = new JRadioButton("France");
 		pnl1.add(rbc8);
 		c.add(rbc8);
+		rbc8.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc14 = new JRadioButton("Romania");
 		pnl1.add(rbc14);
 		c.add(rbc14);
+		rbc14.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc9 = new JRadioButton("Germany");
 		pnl1.add(rbc9);
 		c.add(rbc9);
+		rbc9.setBackground(new Color(204,255,204));
 
 		JRadioButton rbc13 = new JRadioButton("Serbia");
 		pnl1.add(rbc13);
 		c.add(rbc13);
-
+		rbc13.setBackground(new Color(204,255,204));
+		
 		JPanel pnl2 = new JPanel();
 		pnl2.setBackground(new Color(204, 255, 255));
 		pnl2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Capitals", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pnl2.setBounds(233, 6, 211, 224);
 		contentPane.add(pnl2);
 
+	
+		
 		JRadioButton rbs3 = new JRadioButton("Skopje");
 		pnl2.add(rbs3);
 		s.add(rbs3);
-
+		rbs3.setBackground(new Color(204, 255, 255));
+		
 		JRadioButton rbs12 = new JRadioButton("Madrid");
 		pnl2.add(rbs12);
 		s.add(rbs12);
-
+		rbs12.setBackground(new Color(204, 255, 255));
+		
 		JRadioButton rbs4 = new JRadioButton("Ankara");
 		pnl2.add(rbs4);
 		s.add(rbs4);
-
+		rbs4.setBackground(new Color(204, 255, 255));
+		
 		JRadioButton rbs10 = new JRadioButton("Rome");
 		pnl2.add(rbs10);
 		s.add(rbs10);
-
+		rbs10.setBackground(new Color(204, 255, 255));
+		
 		JRadioButton rbs2 = new JRadioButton("Sofia");
 		pnl2.add(rbs2);
 		s.add(rbs2);
-
+		rbs2.setBackground(new Color(204, 255, 255));
+		
 		JRadioButton rbs9 = new JRadioButton("Berlin");
 		pnl2.add(rbs9);
 		s.add(rbs9);
-
+		rbs9.setBackground(new Color(204, 255, 255));
+		
 		JRadioButton rbs6 = new JRadioButton("Tirana");
 		pnl2.add(rbs6);
 		s.add(rbs6);
+		rbs6.setBackground(new Color(204, 255, 255));
 
 		JRadioButton rbs11 = new JRadioButton("London");
 		pnl2.add(rbs11);
 		s.add(rbs11);
+		rbs11.setBackground(new Color(204, 255, 255));
 
 		JRadioButton rbs5 = new JRadioButton("Athens");
 		pnl2.add(rbs5);
 		s.add(rbs5);
+		rbs5.setBackground(new Color(204, 255, 255));
 
 		JRadioButton rbs8 = new JRadioButton("Paris");
 		pnl2.add(rbs8);
 		s.add(rbs8);
+		rbs8.setBackground(new Color(204, 255, 255));
 
 		JRadioButton rbs1 = new JRadioButton("Moscow");
 		pnl2.add(rbs1);
 		s.add(rbs1);
+		rbs1.setBackground(new Color(204, 255, 255));
 
 		JRadioButton rbs13 = new JRadioButton("Belgrade");
 		pnl2.add(rbs13);
 		s.add(rbs13);
+		rbs13.setBackground(new Color(204, 255, 255));
 
 		JRadioButton rbs7 = new JRadioButton("Vienna");
 		pnl2.add(rbs7);
 		s.add(rbs7);
+		rbs7.setBackground(new Color(204, 255, 255));
 
 		JRadioButton rbs14 = new JRadioButton("Bucharest");
 		pnl2.add(rbs14);
 		s.add(rbs14);
+		rbs14.setBackground(new Color(204, 255, 255));
 
 		JButton btnClear = new JButton("Clear");
 		btnClear.addActionListener(new ActionListener() {
@@ -351,6 +383,7 @@ public class GeographyQuiz extends JFrame {
 		contentPane.add(btnRestart);
 		
 		btnBg = new JButton("BG");
+		btnBg.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnBg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (btnBg.getText().equals("EN")) {
@@ -432,7 +465,7 @@ public class GeographyQuiz extends JFrame {
 				}
 			}
 		});
-		btnBg.setBounds(416, 279, 49, 29);
+		btnBg.setBounds(412, 288, 53, 20);
 		contentPane.add(btnBg);
 		
 		JLabel label = new JLabel("");

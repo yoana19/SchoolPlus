@@ -61,8 +61,9 @@ public class calculator extends JFrame {
 	 * Create the frame.
 	 */
 	public calculator() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 240, 335);
+		setBounds(100, 100, 238, 334);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,7 +71,8 @@ public class calculator extends JFrame {
 		contentPane.setLayout(null);
 		
 		label = new JLabel("");
-		label.setBackground(Color.WHITE);
+		label.setForeground(new Color(255, 255, 255));
+		label.setBackground(new Color(255, 255, 255));
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label.setBounds(10, 11, 215, 32);
