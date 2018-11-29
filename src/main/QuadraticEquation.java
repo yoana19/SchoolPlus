@@ -28,6 +28,8 @@ public class QuadraticEquation extends JFrame {
 	private JButton btnClear;
 	private JLabel label;
 	private JLabel lblB;
+	private JLabel lblVertex;
+	private JLabel label_1;
 
 	/**
 	 * Launch the application.
@@ -104,13 +106,24 @@ public class QuadraticEquation extends JFrame {
 					btnBg.setText("EN");
 					btnCalc.setText("Пресметни");
 					btnClear.setText("Изчисти");
+					lblVertex.setText("връх:");
+					if(lbls.getText().equals("This is a linear equation.")) lbls.setText("Това е линейно уравнение.");
+					if(lbls.getText().equals("No real roots.")) lbls.setText("Няма реални корени.");
 				} else {
 					btnBg.setText("BG");
 					btnCalc.setText("Calculate");
-					btnClear.setText("Clear");	
+					btnClear.setText("Clear");
+					lblVertex.setText("vertex:");
+					if(lbls.getText().equals("Това е линейно уравнение.")) lbls.setText("This is a linear equation.");
+					if(lbls.getText().equals("Няма реални корени.")) lbls.setText("No real roots.");
 				}
 			}
 		});
+		
+		lblVertex = new JLabel("vertex:");
+		lblVertex.setForeground(Color.WHITE);
+		lblVertex.setBounds(10, 113, 54, 14);
+		contentPane.add(lblVertex);
 		btnBg.setBounds(286, 0, 49, 29);
 		contentPane.add(btnBg);
 		
@@ -118,14 +131,14 @@ public class QuadraticEquation extends JFrame {
 		btnCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					double t1 = 0;
-					double t2 = 0;
-					double t3 = 0;
+					double a = 0;
+					double b = 0;
+					double c = 0;
 				
 					try {
-						t1 = Double.parseDouble(txta.getText());
-						t2 = Double.parseDouble(txtb.getText());
-						t3 = Double.parseDouble(txtc.getText());
+						a = Double.parseDouble(txta.getText());
+						b = Double.parseDouble(txtb.getText());
+						c = Double.parseDouble(txtc.getText());
 					} catch (Exception e2) {
 						if (btnBg.getText().equals("BG")) {
 							JOptionPane.showMessageDialog(contentPane, "Incorrect Data");
@@ -135,26 +148,26 @@ public class QuadraticEquation extends JFrame {
 						
 						return;
 					}
-				
-				
-				double a = Double.parseDouble(txta.getText());
-				double b = Double.parseDouble(txtb.getText());
-				double c = Double.parseDouble(txtc.getText());
+					
 				double d = b * b - 4 * a * c;
 				if (a == 0)
 					if (btnBg.getText().equals("BG")) {
-						lbls.setText("This is a linear equation");
+						lbls.setText("This is a linear equation.");
 					} else {
-						lbls.setText("Това е линейно уравнение");
+						lbls.setText("Това е линейно уравнение.");
 					}
-					
 				else if (d < 0)
 					if (btnBg.getText().equals("BG")) {
-						lbls.setText("No real roots");
+						lbls.setText("No real roots.");
 					} else {
-						lbls.setText("Няма реални корени");
+						lbls.setText("Няма реални корени.");
 					}
-				else if (d == 0) {
+				else {
+					double x = -b/(2*a);
+					double y = a*x*x + b*x + c;
+					label_1.setText("V(" + Double.toString(x) + ";" + Double.toString(y) + ")");
+					
+					if (d == 0) {
 					if (b == 0)
 						lbls.setText("x1 = x2 = 0");
 					else
@@ -166,7 +179,7 @@ public class QuadraticEquation extends JFrame {
 						lbls.setText(String.format("x1 = %.0f, x2 = %.0f", x1, x2));
 					else
 						lbls.setText(String.format("x1 = %.0f, x2 = %.0f", x2, x1));
-				}
+				}}
 			}
 		});
 		btnCalc.setBounds(181, 33, 101, 23);
@@ -179,15 +192,23 @@ public class QuadraticEquation extends JFrame {
 				txtb.setText("");
 				txtc.setText("");
 				lbls.setText("");
+				label_1.setText("");
 			}
 		});
 		btnClear.setBounds(181, 83, 101, 23);
 		contentPane.add(btnClear);
 		
+		label_1 = new JLabel("");
+		label_1.setForeground(Color.WHITE);
+		label_1.setBounds(58, 113, 76, 14);
+		contentPane.add(label_1);
+		
 		label = new JLabel("");
 		label.setBounds(0, 0, 335, 133);
 		contentPane.add(label);
 		label.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/quadeq.png")));
+		
+		
 
 	
 	}

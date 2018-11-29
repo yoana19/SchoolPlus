@@ -102,8 +102,9 @@ public class Reader extends JFrame {
 				
 				
 				StringBuilder result = new StringBuilder("");
-
-				File file = new File("./heh.txt");
+				ClassLoader cL = this.getClass().getClassLoader();
+				cL.getParent();
+				File file = new File(cL.getResource("gf.txt").getFile());
 
 				try {
 					Scanner scanner = new Scanner(file);

@@ -2,6 +2,8 @@ package main;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,13 +14,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.border.EtchedBorder;
+import java.awt.Color;
 
 public class GeographyQuiz extends JFrame {
-	double p = 0;
-	int max = 0;
+	String massage = "";
 	private JPanel contentPane;
 	private ButtonGroup c = new ButtonGroup();
 	private ButtonGroup s = new ButtonGroup();
+	private JButton btnBg;
+	private JButton btnCheck;
 
 	/**
 	 * Launch the application.
@@ -40,29 +46,22 @@ public class GeographyQuiz extends JFrame {
 	 * Create the frame.
 	 */
 	public GeographyQuiz() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 350);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 465, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblGreetings = new JLabel("");
-		lblGreetings.setBounds(10, 241, 414, 14);
+		lblGreetings.setForeground(Color.WHITE);
+		lblGreetings.setBounds(20, 234, 414, 14);
 		contentPane.add(lblGreetings);
 
-		JLabel lblr = new JLabel("");
-		lblr.setBounds(10, 273, 203, 14);
-		contentPane.add(lblr);
-
-		JLabel lblg = new JLabel("");
-		lblg.setBounds(223, 273, 201, 14);
-		contentPane.add(lblg);
-
 		JPanel pnl1 = new JPanel();
-		pnl1.setBorder(new TitledBorder(null, "\u0414\u044A\u0440\u0436\u0430\u0432\u0438", TitledBorder.LEADING,
-				TitledBorder.TOP, null, null));
-		pnl1.setBounds(0, 0, 211, 224);
+		pnl1.setBackground(new Color(204, 255, 204));
+		pnl1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Countries", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnl1.setBounds(10, 6, 211, 224);
 		contentPane.add(pnl1);
 
 		JRadioButton rbc1 = new JRadioButton("Russia");
@@ -122,12 +121,12 @@ public class GeographyQuiz extends JFrame {
 		c.add(rbc13);
 
 		JPanel pnl2 = new JPanel();
-		pnl2.setBorder(new TitledBorder(null, "\u0421\u0442\u043E\u043B\u0438\u0446\u0438", TitledBorder.LEADING,
-				TitledBorder.TOP, null, null));
-		pnl2.setBounds(233, 0, 211, 224);
+		pnl2.setBackground(new Color(204, 255, 255));
+		pnl2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Capitals", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnl2.setBounds(233, 6, 211, 224);
 		contentPane.add(pnl2);
 
-		JRadioButton rbs3 = new JRadioButton("Scopje");
+		JRadioButton rbs3 = new JRadioButton("Skopje");
 		pnl2.add(rbs3);
 		s.add(rbs3);
 
@@ -183,256 +182,262 @@ public class GeographyQuiz extends JFrame {
 		pnl2.add(rbs14);
 		s.add(rbs14);
 
-		JButton button = new JButton("\u041F\u0440\u043E\u0432\u0435\u0440\u0438");
-		button.addActionListener(new ActionListener() {
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int b = -1;
-				int i = 0;
-				lblGreetings.setText("Грешка.");
-				if (rbs1.isSelected() && rbc1.isSelected()) {
-					rbc1.setVisible(false);
-					rbs1.setVisible(false);
-					rbc1.setSelected(false);
-					rbs1.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs2.isSelected() && rbc2.isSelected()) {
-					rbc2.setVisible(false);
-					rbs2.setVisible(false);
-					rbc2.setSelected(false);
-					rbs2.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs3.isSelected() && rbc3.isSelected()) {
-					rbc3.setVisible(false);
-					rbs3.setVisible(false);
-					rbc3.setSelected(false);
-					rbs3.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs4.isSelected() && rbc4.isSelected()) {
-					rbc4.setVisible(false);
-					rbs4.setVisible(false);
-					rbc4.setSelected(false);
-					rbs4.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs5.isSelected() && rbc5.isSelected()) {
-					rbc5.setVisible(false);
-					rbs5.setVisible(false);
-					rbc5.setSelected(false);
-					rbs5.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs6.isSelected() && rbc6.isSelected()) {
-					rbc6.setVisible(false);
-					rbs6.setVisible(false);
-					rbc6.setSelected(false);
-					rbs6.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs7.isSelected() && rbc7.isSelected()) {
-					rbc7.setVisible(false);
-					rbs7.setVisible(false);
-					rbc7.setSelected(false);
-					rbs7.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs8.isSelected() && rbc8.isSelected()) {
-					rbc8.setVisible(false);
-					rbs8.setVisible(false);
-					rbc8.setSelected(false);
-					rbs8.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs9.isSelected() && rbc9.isSelected()) {
-					rbc9.setVisible(false);
-					rbs9.setVisible(false);
-					rbc9.setSelected(false);
-					rbs9.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs10.isSelected() && rbc10.isSelected()) {
-					rbc10.setVisible(false);
-					rbs10.setVisible(false);
-					rbc10.setSelected(false);
-					rbs10.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs11.isSelected() && rbc11.isSelected()) {
-					rbc11.setVisible(false);
-					rbs11.setVisible(false);
-					rbc11.setSelected(false);
-					rbs11.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs12.isSelected() && rbc12.isSelected()) {
-					rbc12.setVisible(false);
-					rbs12.setVisible(false);
-					rbc12.setSelected(false);
-					rbs12.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs13.isSelected() && rbc13.isSelected()) {
-					rbc13.setVisible(false);
-					rbs13.setVisible(false);
-					rbc13.setSelected(false);
-					rbs13.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				} else if (rbs14.isSelected() && rbc14.isSelected()) {
-					rbc14.setVisible(false);
-					rbs14.setVisible(false);
-					rbc14.setSelected(false);
-					rbs14.setSelected(false);
-					b = 2;
-					i = 2;
-					lblGreetings.setText("Браво!");
-				}
-				p += b;
-				max += i;
-				lblr.setText(String.format("Резултат: %.0f точки", p));
-				double g = 100 * p / max;
-				if (g < 60)
-					lblg.setText(String.format("%.2f", g) + "% - Слаб 2");
-				else if (g < 70)
-					lblg.setText(String.format("%.2f", g) + "% - Среден 3");
-				else if (g < 80)
-					lblg.setText(String.format("%.2f", g) + "% - Добър 4");
-				else if (g < 90)
-					lblg.setText(String.format("%.2f", g) + "% - Много добър 5");
-				else
-					lblg.setText(String.format("%.2f", g) + "% - Отличен 6");
+				c.clearSelection();
+				s.clearSelection();
+				lblGreetings.setText("");
 			}
 		});
-		button.setBounds(10, 299, 95, 23);
-		contentPane.add(button);
+		
+				btnCheck = new JButton("Check");
+				btnCheck.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (btnBg.getText().equals("BG")) lblGreetings.setText("Mistake.");
+						else lblGreetings.setText("Грешка.");
+						if (rbs1.isSelected() && rbc1.isSelected()) {
+							rbc1.setVisible(false);
+							rbs1.setVisible(false);
+							rbc1.setSelected(false);
+							rbs1.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs2.isSelected() && rbc2.isSelected()) {
+							rbc2.setVisible(false);
+							rbs2.setVisible(false);
+							rbc2.setSelected(false);
+							rbs2.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs3.isSelected() && rbc3.isSelected()) {
+							rbc3.setVisible(false);
+							rbs3.setVisible(false);
+							rbc3.setSelected(false);
+							rbs3.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs4.isSelected() && rbc4.isSelected()) {
+							rbc4.setVisible(false);
+							rbs4.setVisible(false);
+							rbc4.setSelected(false);
+							rbs4.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs5.isSelected() && rbc5.isSelected()) {
+							rbc5.setVisible(false);
+							rbs5.setVisible(false);
+							rbc5.setSelected(false);
+							rbs5.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs6.isSelected() && rbc6.isSelected()) {
+							rbc6.setVisible(false);
+							rbs6.setVisible(false);
+							rbc6.setSelected(false);
+							rbs6.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs7.isSelected() && rbc7.isSelected()) {
+							rbc7.setVisible(false);
+							rbs7.setVisible(false);
+							rbc7.setSelected(false);
+							rbs7.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs8.isSelected() && rbc8.isSelected()) {
+							rbc8.setVisible(false);
+							rbs8.setVisible(false);
+							rbc8.setSelected(false);
+							rbs8.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs9.isSelected() && rbc9.isSelected()) {
+							rbc9.setVisible(false);
+							rbs9.setVisible(false);
+							rbc9.setSelected(false);
+							rbs9.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs10.isSelected() && rbc10.isSelected()) {
+							rbc10.setVisible(false);
+							rbs10.setVisible(false);
+							rbc10.setSelected(false);
+							rbs10.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs11.isSelected() && rbc11.isSelected()) {
+							rbc11.setVisible(false);
+							rbs11.setVisible(false);
+							rbc11.setSelected(false);
+							rbs11.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs12.isSelected() && rbc12.isSelected()) {
+							rbc12.setVisible(false);
+							rbs12.setVisible(false);
+							rbc12.setSelected(false);
+							rbs12.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs13.isSelected() && rbc13.isSelected()) {
+							rbc13.setVisible(false);
+							rbs13.setVisible(false);
+							rbc13.setSelected(false);
+							rbs13.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						} else if (rbs14.isSelected() && rbc14.isSelected()) {
+							rbc14.setVisible(false);
+							rbs14.setVisible(false);
+							rbc14.setSelected(false);
+							rbs14.setSelected(false);
+							if (btnBg.getText().equals("BG")) lblGreetings.setText("Good job!");
+							else lblGreetings.setText("Браво!");
+						}
+					}
+				});
+				btnCheck.setBounds(10, 254, 95, 23);
+				contentPane.add(btnCheck);
+		btnClear.setBounds(126, 254, 95, 23);
+		contentPane.add(btnClear);
 
-		JButton button_1 = new JButton("\u0418\u0437\u0447\u0438\u0441\u0442\u0438");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				rbc1.setSelected(false);
-				rbs1.setSelected(false);
-				rbc2.setSelected(false);
-				rbs2.setSelected(false);
-				rbc3.setSelected(false);
-				rbs3.setSelected(false);
-				rbc4.setSelected(false);
-				rbs4.setSelected(false);
-				rbc5.setSelected(false);
-				rbs5.setSelected(false);
-				rbc6.setSelected(false);
-				rbs6.setSelected(false);
-				rbc7.setSelected(false);
-				rbs7.setSelected(false);
-				rbc8.setSelected(false);
-				rbs8.setSelected(false);
-				rbc9.setSelected(false);
-				rbs9.setSelected(false);
-				rbc10.setSelected(false);
-				rbs10.setSelected(false);
-				rbc11.setSelected(false);
-				rbs11.setSelected(false);
-				rbc12.setSelected(false);
-				rbs12.setSelected(false);
-				rbc13.setSelected(false);
-				rbs13.setSelected(false);
-				rbc14.setSelected(false);
-				rbs14.setSelected(false);
-			}
-		});
-		button_1.setBounds(117, 299, 95, 23);
-		contentPane.add(button_1);
-
-		JButton button_2 = new JButton("\u0418\u0437\u0445\u043E\u0434");
-		button_2.addActionListener(new ActionListener() {
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
-		button_2.setBounds(329, 299, 95, 23);
-		contentPane.add(button_2);
+		btnExit.setBounds(349, 254, 95, 23);
+		contentPane.add(btnExit);
 
-		JButton button_3 = new JButton("\u0420\u0435\u0441\u0442\u0430\u0440\u0442");
-		button_3.addActionListener(new ActionListener() {
+		JButton btnRestart = new JButton("Restart");
+		btnRestart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				c.clearSelection();
+				s.clearSelection();
 				rbc1.setVisible(true);
-				rbc1.setSelected(false);
 				rbs1.setVisible(true);
-				rbs1.setSelected(false);
 				rbc2.setVisible(true);
-				rbc2.setSelected(false);
 				rbs2.setVisible(true);
-				rbs2.setSelected(false);
 				rbc3.setVisible(true);
-				rbc3.setSelected(false);
 				rbs3.setVisible(true);
-				rbs3.setSelected(false);
 				rbc4.setVisible(true);
-				rbc4.setSelected(false);
 				rbs4.setVisible(true);
-				rbs4.setSelected(false);
 				rbc5.setVisible(true);
-				rbc5.setSelected(false);
 				rbs5.setVisible(true);
-				rbs5.setSelected(false);
 				rbc6.setVisible(true);
-				rbc6.setSelected(false);
 				rbs6.setVisible(true);
-				rbs6.setSelected(false);
 				rbc7.setVisible(true);
-				rbc7.setSelected(false);
 				rbs7.setVisible(true);
-				rbs7.setSelected(false);
 				rbc8.setVisible(true);
-				rbc8.setSelected(false);
 				rbs8.setVisible(true);
-				rbs8.setSelected(false);
 				rbc9.setVisible(true);
-				rbc9.setSelected(false);
 				rbs9.setVisible(true);
-				rbs9.setSelected(false);
 				rbc10.setVisible(true);
-				rbc10.setSelected(false);
 				rbs10.setVisible(true);
-				rbs10.setSelected(false);
 				rbc11.setVisible(true);
-				rbc11.setSelected(false);
 				rbs11.setVisible(true);
-				rbs11.setSelected(false);
 				rbc12.setVisible(true);
-				rbc12.setSelected(false);
 				rbs12.setVisible(true);
-				rbs12.setSelected(false);
 				rbc13.setVisible(true);
-				rbc13.setSelected(false);
 				rbs13.setVisible(true);
-				rbs13.setSelected(false);
 				rbc14.setVisible(true);
-				rbc14.setSelected(false);
 				rbs14.setVisible(true);
-				rbs14.setSelected(false);
-				p = 0;
-				max = 0;
-				lblr.setText("");
-				lblg.setText("");
 				lblGreetings.setText("");
 			}
 		});
-		button_3.setBounds(223, 299, 95, 23);
-		contentPane.add(button_3);
+		btnRestart.setBounds(233, 254, 95, 23);
+		contentPane.add(btnRestart);
+		
+		btnBg = new JButton("BG");
+		btnBg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btnBg.getText().equals("EN")) {
+					btnBg.setText("BG");
+					rbc1.setText("Russia");
+					rbc2.setText("Bulgaria");
+					rbc3.setText("Macedonia");
+					rbc4.setText("Turkey");
+					rbc5.setText("Greece");
+					rbc6.setText("Albania");
+					rbc7.setText("Austria");
+					rbc8.setText("France");
+					rbc9.setText("Germany");
+					rbc10.setText("Italy");
+					rbc11.setText("UK");
+					rbc12.setText("Spain");
+					rbc13.setText("Serbia");
+					rbc14.setText("Romania");
+					rbs1.setText("Moscow");
+					rbs2.setText("Sofia");
+					rbs3.setText("Skopje");
+					rbs4.setText("Ankara");
+					rbs5.setText("Athens");
+					rbs6.setText("Tirana");
+					rbs7.setText("Vienna");
+					rbs8.setText("Paris");
+					rbs9.setText("Berlin");
+					rbs10.setText("Rome");
+					rbs11.setText("London");
+					rbs12.setText("Madrid");
+					rbs13.setText("Belgrade");
+					rbs14.setText("Bucharest");
+					pnl1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Countries", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					pnl2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Capitals", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					if(lblGreetings.getText().equals("Грешка.")) lblGreetings.setText("Mistake.");
+					else if(lblGreetings.getText().equals("Браво!")) lblGreetings.setText("Good job!");
+					btnCheck.setText("Check");
+					btnClear.setText("Clear");
+					btnExit.setText("Exit");
+					btnRestart.setText("Restart");
+				} else {
+					btnBg.setText("EN");
+					rbc1.setText("Русия");
+					rbc2.setText("България");
+					rbc3.setText("Македония");
+					rbc4.setText("Турция");
+					rbc5.setText("Гърция");
+					rbc6.setText("Албания");
+					rbc7.setText("Австрия");
+					rbc8.setText("Франция");
+					rbc9.setText("Германия");
+					rbc10.setText("Италия");
+					rbc11.setText("Великобритания");
+					rbc12.setText("Испания");
+					rbc13.setText("Сърбия");
+					rbc14.setText("Румъния");
+					rbs1.setText("Москва");
+					rbs2.setText("София");
+					rbs3.setText("Скопие");
+					rbs4.setText("Анкара");
+					rbs5.setText("Атина");
+					rbs6.setText("Тирана");
+					rbs7.setText("Виена");
+					rbs8.setText("Париж");
+					rbs9.setText("Берлин");
+					rbs10.setText("Рим");
+					rbs11.setText("Лондон");
+					rbs12.setText("Мадрид");
+					rbs13.setText("Белград");
+					rbs14.setText("Букурещ");
+					pnl1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Държави", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					pnl2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Столици", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+					if(lblGreetings.getText().equals("Mistake.")) lblGreetings.setText("Грешка.");
+					else if(lblGreetings.getText().equals("Good job!")) lblGreetings.setText("Браво!");
+					btnCheck.setText("Провери");
+					btnClear.setText("Изчисти");
+					btnExit.setText("Изход");
+					btnRestart.setText("Рестарт");
+				}
+			}
+		});
+		btnBg.setBounds(416, 279, 49, 29);
+		contentPane.add(btnBg);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(0, 0, 465, 308);
+		contentPane.add(label);
+		label.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/geographyquiz.jpg")));
 	}
 }

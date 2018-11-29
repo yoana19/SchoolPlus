@@ -12,6 +12,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class calculator extends JFrame {
 
@@ -60,20 +61,23 @@ public class calculator extends JFrame {
 	 * Create the frame.
 	 */
 	public calculator() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 252, 345);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 240, 335);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		label = c new JLabel("");
+		label = new JLabel("");
+		label.setBackground(Color.WHITE);
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label.setBounds(10, 11, 210, 32);
+		label.setBounds(10, 11, 215, 32);
 		contentPane.add(label);
 		
 		btnErase = new JButton("C");
+		btnErase.setBackground(new Color(240, 128, 128));
 		btnErase.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				label.setText("");
@@ -92,6 +96,7 @@ public class calculator extends JFrame {
 		});
 		btnNegative.setBounds(65, 54, 50, 40);
 		contentPane.add(btnNegative);
+		btnNegative.setBackground(new Color(240,128,128));
 		
 		btnPercent = new JButton("%");
 		btnPercent.addActionListener(new ActionListener() {
@@ -103,6 +108,7 @@ public class calculator extends JFrame {
 		});
 		btnPercent.setBounds(120, 54, 50, 40);
 		contentPane.add(btnPercent);
+		btnPercent.setBackground(new Color(240,128,128));
 		
 		JButton btn7 = new JButton("7");
 		btn7.addActionListener(new ActionListener() {
@@ -194,6 +200,7 @@ public class calculator extends JFrame {
 		});
 		btnDivision.setBounds(175, 54, 50, 40);
 		contentPane.add(btnDivision);
+		btnDivision.setBackground(new Color(240,128,128));
 		
 		btnMultiplication = new JButton("\u00D7");
 		btnMultiplication.addActionListener(new ActionListener() {
@@ -205,6 +212,7 @@ public class calculator extends JFrame {
 		});
 		btnMultiplication.setBounds(175, 105, 50, 40);
 		contentPane.add(btnMultiplication);
+		btnMultiplication.setBackground(new Color(240,128,128));
 		
 		JButton btnMinus = new JButton("-");
 		btnMinus.addActionListener(new ActionListener() {
@@ -216,6 +224,7 @@ public class calculator extends JFrame {
 		});
 		btnMinus.setBounds(175, 156, 50, 40);
 		contentPane.add(btnMinus);
+		btnMinus.setBackground(new Color(240,128,128));
 		
 		btnPlus = new JButton("+");
 		btnPlus.addActionListener(new ActionListener() {
@@ -227,6 +236,7 @@ public class calculator extends JFrame {
 		});
 		btnPlus.setBounds(175, 207, 50, 40);
 		contentPane.add(btnPlus);
+		btnPlus.setBackground(new Color(240,128,128));
 		
 		btn1 = new JButton("1");
 		btn1.addActionListener(new ActionListener() {
@@ -293,5 +303,6 @@ public class calculator extends JFrame {
 		});
 		btnEquals.setBounds(175, 258, 50, 40);
 		contentPane.add(btnEquals);
+		btnEquals.setBackground(new Color(240,128,128));
 	}
 }
