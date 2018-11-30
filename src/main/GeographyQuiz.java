@@ -56,13 +56,13 @@ public class GeographyQuiz extends JFrame {
 
 		JLabel lblGreetings = new JLabel("");
 		lblGreetings.setForeground(Color.WHITE);
-		lblGreetings.setBounds(20, 234, 414, 14);
+		lblGreetings.setBounds(10, 260, 414, 14);
 		contentPane.add(lblGreetings);
 
 		JPanel pnl1 = new JPanel();
 		pnl1.setBackground(new Color(204, 255, 204));
 		pnl1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Countries", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		pnl1.setBounds(10, 6, 211, 224);
+		pnl1.setBounds(10, 6, 211, 242);
 		contentPane.add(pnl1);
 
 		JRadioButton rbc1 = new JRadioButton("Russia");
@@ -139,7 +139,7 @@ public class GeographyQuiz extends JFrame {
 		JPanel pnl2 = new JPanel();
 		pnl2.setBackground(new Color(204, 255, 255));
 		pnl2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Capitals", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		pnl2.setBounds(233, 6, 211, 224);
+		pnl2.setBounds(233, 6, 211, 242);
 		contentPane.add(pnl2);
 
 	
@@ -329,9 +329,9 @@ public class GeographyQuiz extends JFrame {
 						}
 					}
 				});
-				btnCheck.setBounds(10, 254, 95, 23);
+				btnCheck.setBounds(10, 286, 95, 23);
 				contentPane.add(btnCheck);
-		btnClear.setBounds(126, 254, 95, 23);
+		btnClear.setBounds(117, 286, 95, 23);
 		contentPane.add(btnClear);
 
 		JButton btnExit = new JButton("Exit");
@@ -340,7 +340,7 @@ public class GeographyQuiz extends JFrame {
 				System.exit(0);
 			}
 		});
-		btnExit.setBounds(349, 254, 95, 23);
+		btnExit.setBounds(340, 286, 95, 23);
 		contentPane.add(btnExit);
 
 		JButton btnRestart = new JButton("Restart");
@@ -379,7 +379,7 @@ public class GeographyQuiz extends JFrame {
 				lblGreetings.setText("");
 			}
 		});
-		btnRestart.setBounds(233, 254, 95, 23);
+		btnRestart.setBounds(233, 286, 95, 23);
 		contentPane.add(btnRestart);
 		
 		btnBg = new JButton("BG");
@@ -465,11 +465,11 @@ public class GeographyQuiz extends JFrame {
 				}
 			}
 		});
-		btnBg.setBounds(412, 288, 53, 20);
+		btnBg.setBounds(442, 288, 32, 20);
 		contentPane.add(btnBg);
 		
 		JLabel label = new JLabel("");
-		label.setBounds(0, 0, 465, 308);
+		label.setBounds(0, 0, 480, 320);
 		contentPane.add(label);
 		label.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/geographyquiz.jpg")));
 	}

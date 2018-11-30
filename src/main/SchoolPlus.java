@@ -72,6 +72,7 @@ public class SchoolPlus extends JFrame {
 	private JButton btnReader;
 	private JButton btnInterLiter;
 	private JButton btnRandomizer;
+	private JButton btnTOEFL;
 
 	/**
 	 * Launch the application.
@@ -407,25 +408,23 @@ public class SchoolPlus extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (btnBg.getText().equals("BG")) {
 					btnBg.setText("EN");
-					pnlLinguistics.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ð›Ð¸Ð½Ð³Ð²Ð¸Ñ�Ñ‚Ð¸ÐºÐ°",
+					pnlLinguistics.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Лингвистика",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlSocial.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
-							"Ð¥ÑƒÐ¼Ð°Ð½Ð¸Ñ‚Ð°Ñ€Ð½Ð¸ Ð½Ð°ÑƒÐºÐ¸", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+							"Социални науки", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 					pnlMathematics.setBorder(
-							new TitledBorder(UIManager.getBorder("TitledBorder.border"), "ÐœÐ°Ñ‚ÐµÐ¼Ð°Ñ‚Ð¸ÐºÐ° & Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ð¸ÐºÐ°",
+							new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Математика & информатика",
 									TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "ÐŸÑ€Ð¸Ñ€Ð¾Ð´Ð½Ð¸ Ð½Ð°ÑƒÐºÐ¸",
+					pnlScience.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Природни науки",
 							TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-					lblNotes.setText("Ð‘ÐµÐ»ÐµÐ¶ÐºÐ¸");
-					btnReset.setText("Ð�ÑƒÐ»Ð¸Ñ€Ð°Ð½Ðµ");
-					btnSave.setText("Ð—Ð°Ð¿Ð°Ð·Ð¸");
-					btnSettings.setToolTipText("Ð¡Ð¼ÐµÐ½Ð¸ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸ÐµÑ‚Ð¾");
+					lblNotes.setText("Бележки");
+					btnReset.setText("Изтрий");
+					btnSave.setText("Запази");
+					btnSettings.setToolTipText("");
 					btnGeoQuiz.setToolTipText("Ð¢ÐµÑ�Ñ‚ Ð¿Ð¾ Ð³ÐµÐ¾Ð³Ñ€Ð°Ñ„Ð¸Ñ�");
 					btnReadingDiary.setToolTipText("Ð§Ð¸Ñ‚Ð°Ñ‚ÐµÐ»Ñ�ÐºÐ¸ Ð´Ð½ÐµÐ²Ð½Ð¸Ðº");
 					btnQuadEq.setToolTipText("ÐšÐ²Ð°Ð´Ñ€Ð°Ñ‚Ð½Ð¾ ÑƒÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ");
 					btnMultiCalc.setToolTipText("Ð�Ð°ÑƒÑ‡ÐµÐ½ ÐºÐ°Ð»ÐºÑƒÐ»Ð°Ñ‚Ð¾Ñ€");
-					// btnSave.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
-					// btnReset.setText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 				} else if (btnBg.getText().equals("EN")) {
 					btnBg.setText("BG");
 					pnlLinguistics.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Linguistics",
@@ -445,8 +444,6 @@ public class SchoolPlus extends JFrame {
 					btnReadingDiary.setToolTipText("Reading Diary");
 					btnQuadEq.setToolTipText("Quadratic Equation");
 					btnMultiCalc.setToolTipText("Scientific Calculator");
-					// btnSave.setText("Save");
-					// btnReset.setText("Reset");
 				}
 			}
 		});
@@ -542,6 +539,29 @@ public class SchoolPlus extends JFrame {
 		btnRandomizer.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		btnRandomizer.setBounds(221, 13, 65, 67);
 		pnlLinguistics.add(btnRandomizer);
+		btnRandomizer.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/randomizericn.png"))));
+		
+		btnTOEFL = new JButton("");
+		btnTOEFL.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					PocketTOEFL frame = new PocketTOEFL();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnTOEFL.setToolTipText("Reading Diary");
+		btnTOEFL.setFocusPainted(false);
+		btnTOEFL.setContentAreaFilled(false);
+		btnTOEFL.setBorderPainted(false);
+		btnTOEFL.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		btnTOEFL.setBounds(10, 76, 65, 67);
+		pnlLinguistics.add(btnTOEFL);
+		btnTOEFL.setIcon(new ImageIcon((Toolkit.getDefaultToolkit().getClass().getResource("/res/pockettoefl.png"))));
 
 		btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
@@ -601,7 +621,7 @@ public class SchoolPlus extends JFrame {
 		btnSave.setBounds(438, 567, 165, 30);
 		contentPane.add(btnSave);
 
-		btnSettings = new JButton("âœ�");
+		btnSettings = new JButton("✐");
 		btnSettings.setFont(new Font("Lucida Grande", Font.PLAIN, 22));
 		btnSettings.setToolTipText("Change Background");
 		btnSettings.addActionListener(new ActionListener() {

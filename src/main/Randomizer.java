@@ -1,12 +1,15 @@
 package main;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.JTextArea;
+import javax.swing.UIManager;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
@@ -35,6 +38,8 @@ public class Randomizer extends JFrame {
 	private JButton btnScramble;
 	private JTextArea textArea1;
 	private JButton btnClear;
+	private JButton btnBg;
+	private JLabel label;
 
 	/**
 	 * Launch the application.
@@ -58,7 +63,7 @@ public class Randomizer extends JFrame {
 	public Randomizer() {
 		setResizable(false);
 		setTitle("Randomizer");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 928, 354);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -168,9 +173,34 @@ public class Randomizer extends JFrame {
 		btnClear.setBounds(472, 156, 89, 23);
 		contentPane.add(btnClear);
 
-		JLabel label = new JLabel("");
+		btnBg = new JButton("BG");
+		btnBg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (btnBg.getText().equals("BG")) {
+					btnBg.setText("EN");
+					btnOpenFile.setText("Отвори");
+					btnClear.setText("Изчисти");
+					btnSaveFile.setText("Запази");
+					btnScramble.setText("Разбъркай");
+				} else if (btnBg.getText().equals("EN")) {
+					btnBg.setText("BG");
+					btnOpenFile.setText("Open File");
+					btnClear.setText("Clear");
+					btnSaveFile.setText("Save File");
+					btnScramble.setText("Scramble");
+				}
+				
+			}
+		});
+		btnBg.setBounds(855, 303, 67, 29);
+		contentPane.add(btnBg);
+		
+		label = new JLabel("");
 		label.setIcon(new ImageIcon(Randomizer.class.getResource("/res/book.jpg")));
 		label.setBounds(-35, 0, 996, 404);
 		contentPane.add(label);
+		
+		
 	}
 }
