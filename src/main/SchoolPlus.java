@@ -73,6 +73,7 @@ public class SchoolPlus extends JFrame {
 	private JButton btnInterLiter;
 	private JButton btnRandomizer;
 	private JButton btnTOEFL;
+	private JButton btnWebsiteBuilder;
 
 	/**
 	 * Launch the application.
@@ -293,27 +294,6 @@ public class SchoolPlus extends JFrame {
 		pnlMathematics.add(btnQuadEq);
 		btnQuadEq.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/quadeqicn.png")));
 		
-		btnMultiCalc = new JButton("");
-		btnMultiCalc.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					MultiCalc frame = new MultiCalc();
-					frame.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		btnMultiCalc.setToolTipText("Scientific Calculator");
-		btnMultiCalc.setOpaque(false);
-		btnMultiCalc.setFocusPainted(false);
-		btnMultiCalc.setContentAreaFilled(false);
-		btnMultiCalc.setBorderPainted(false);
-		btnMultiCalc.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		btnMultiCalc.setBounds(76, 15, 65, 67);
-		pnlMathematics.add(btnMultiCalc);
-		btnMultiCalc.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/multicalcicn.png")));
-		
 		btnCalc = new JButton("");
 		btnCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -333,7 +313,7 @@ public class SchoolPlus extends JFrame {
 		btnCalc.setContentAreaFilled(false);
 		btnCalc.setBorderPainted(false);
 		btnCalc.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		btnCalc.setBounds(140, 20, 65, 67);
+		btnCalc.setBounds(85, 15, 65, 67);
 		pnlMathematics.add(btnCalc);
 		btnCalc.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/calcicn.png")));
 		
@@ -356,9 +336,32 @@ public class SchoolPlus extends JFrame {
 		btnFunc.setContentAreaFilled(false);
 		btnFunc.setBorderPainted(false);
 		btnFunc.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		btnFunc.setBounds(210, 18, 65, 67);
+		btnFunc.setBounds(160, 15, 65, 67);
 		pnlMathematics.add(btnFunc);
 		btnFunc.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/functionsicn.png")));
+		
+		btnWebsiteBuilder = new JButton("");
+		btnWebsiteBuilder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					WebsiteBuilder frame = new WebsiteBuilder();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnWebsiteBuilder.setToolTipText("Functions");
+		btnWebsiteBuilder.setOpaque(false);
+		btnWebsiteBuilder.setFocusPainted(false);
+		btnWebsiteBuilder.setContentAreaFilled(false);
+		btnWebsiteBuilder.setBorderPainted(false);
+		btnWebsiteBuilder.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		btnWebsiteBuilder.setBounds(221, 15, 65, 67);
+		pnlMathematics.add(btnWebsiteBuilder);
+		btnWebsiteBuilder.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/websitebuildericn.png")));
 		
 		pnlScience = new JPanel();
 		pnlScience.setBackground(new Color(255, 250, 250));
@@ -367,6 +370,27 @@ public class SchoolPlus extends JFrame {
 				TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pnlScience.setBounds(715, 331, 296, 239);
 		contentPane.add(pnlScience);
+		
+		btnMultiCalc = new JButton("");
+		btnMultiCalc.setBounds(10, 11, 65, 67);
+		pnlScience.add(btnMultiCalc);
+		btnMultiCalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					MultiCalc frame = new MultiCalc();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnMultiCalc.setToolTipText("Scientific Calculator");
+		btnMultiCalc.setOpaque(false);
+		btnMultiCalc.setFocusPainted(false);
+		btnMultiCalc.setContentAreaFilled(false);
+		btnMultiCalc.setBorderPainted(false);
+		btnMultiCalc.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		btnMultiCalc.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/res/multicalcicn.png")));
 
 		pnlSocial = new JPanel();
 		pnlSocial.setBackground(new Color(255, 250, 250));
@@ -421,10 +445,15 @@ public class SchoolPlus extends JFrame {
 					btnReset.setText("Изтрий");
 					btnSave.setText("Запази");
 					btnSettings.setToolTipText("");
-					btnGeoQuiz.setToolTipText("Ð¢ÐµÑ�Ñ‚ Ð¿Ð¾ Ð³ÐµÐ¾Ð³Ñ€Ð°Ñ„Ð¸Ñ�");
-					btnReadingDiary.setToolTipText("Ð§Ð¸Ñ‚Ð°Ñ‚ÐµÐ»Ñ�ÐºÐ¸ Ð´Ð½ÐµÐ²Ð½Ð¸Ðº");
-					btnQuadEq.setToolTipText("ÐšÐ²Ð°Ð´Ñ€Ð°Ñ‚Ð½Ð¾ ÑƒÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ");
-					btnMultiCalc.setToolTipText("Ð�Ð°ÑƒÑ‡ÐµÐ½ ÐºÐ°Ð»ÐºÑƒÐ»Ð°Ñ‚Ð¾Ñ€");
+					btnGeoQuiz.setToolTipText("Тест по география");
+					btnReadingDiary.setToolTipText("Читателски дневник");
+					btnQuadEq.setToolTipText("Квадратно уравнение");
+					btnMultiCalc.setToolTipText("Научен калкулатор");
+					btnReader.setToolTipText("Четец");
+					btnInterLiter.setToolTipText("Помагало по литература");
+					btnRandomizer.setToolTipText("Разбъркване на изречения");
+					btnTOEFL.setToolTipText("Подготовка за TOEFL");
+					
 				} else if (btnBg.getText().equals("EN")) {
 					btnBg.setText("BG");
 					pnlLinguistics.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Linguistics",
@@ -444,10 +473,14 @@ public class SchoolPlus extends JFrame {
 					btnReadingDiary.setToolTipText("Reading Diary");
 					btnQuadEq.setToolTipText("Quadratic Equation");
 					btnMultiCalc.setToolTipText("Scientific Calculator");
+					btnReader.setToolTipText("Reader");
+					btnInterLiter.setToolTipText("Literary Analysis");
+					btnRandomizer.setToolTipText("Sentence Scrambler");
+					btnTOEFL.setToolTipText("TOEFL Prep");
 				}
 			}
 		});
-		btnBg.setBounds(977, 573, 67, 23);
+		btnBg.setBounds(977, 581, 67, 23);
 		contentPane.add(btnBg);
 
 		btnReadingDiary = new JButton("");
@@ -485,7 +518,7 @@ public class SchoolPlus extends JFrame {
 				
 			}
 		});
-		btnReader.setToolTipText("Reading Diary");
+		btnReader.setToolTipText("Reader");
 		btnReader.setOpaque(false);
 		btnReader.setFocusPainted(false);
 		btnReader.setContentAreaFilled(false);
@@ -508,7 +541,7 @@ public class SchoolPlus extends JFrame {
 				
 			}
 		});
-		btnInterLiter.setToolTipText("Reading Diary");
+		btnInterLiter.setToolTipText("Literary Analysis");
 		btnInterLiter.setOpaque(false);
 		btnInterLiter.setFocusPainted(false);
 		btnInterLiter.setContentAreaFilled(false);
@@ -531,7 +564,7 @@ public class SchoolPlus extends JFrame {
 				
 			}
 		});
-		btnRandomizer.setToolTipText("Reading Diary");
+		btnRandomizer.setToolTipText("Sentence Scrambler");
 		btnRandomizer.setOpaque(false);
 		btnRandomizer.setFocusPainted(false);
 		btnRandomizer.setContentAreaFilled(false);
@@ -554,7 +587,7 @@ public class SchoolPlus extends JFrame {
 				
 			}
 		});
-		btnTOEFL.setToolTipText("Reading Diary");
+		btnTOEFL.setToolTipText("TOEFL Prep");
 		btnTOEFL.setFocusPainted(false);
 		btnTOEFL.setContentAreaFilled(false);
 		btnTOEFL.setBorderPainted(false);
@@ -636,20 +669,6 @@ public class SchoolPlus extends JFrame {
 		});
 		btnSettings.setBounds(977, 6, 67, 29);
 		contentPane.add(btnSettings);
-
-		JButton btnSdgsdg = new JButton("sdgsdg");
-		btnSdgsdg.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-				/*
-				 * String bip = "/res/hippetyhop.mp3"; Media hit = new Media(new
-				 * File(bip).toURI().toString()); MediaPlayer mediaPlayer = new
-				 * MediaPlayer(hit); mediaPlayer.play();
-				 */
-			}
-		});
-		btnSdgsdg.setBounds(10, 0, 89, 23);
-		contentPane.add(btnSdgsdg);
 
 		label_1 = new JLabel("");
 		label_1.setBounds(0, 0, 1065, 613);

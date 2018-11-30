@@ -64,7 +64,7 @@ public class Randomizer extends JFrame {
 		setResizable(false);
 		setTitle("Randomizer");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 928, 354);
+		setBounds(100, 100, 928, 362);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -75,8 +75,6 @@ public class Randomizer extends JFrame {
 		textArea.setWrapStyleWord(true);
 		textArea.setBounds(10, 57, 287, 225);
 		contentPane.add(textArea);
-
-		JOptionPane.showMessageDialog(contentPane, "Note that you can only scramble one sentence at a time.");
 
 		JButton btnOpenFile = new JButton("Open File");
 		btnOpenFile.addActionListener(new ActionListener() {
@@ -154,7 +152,7 @@ public class Randomizer extends JFrame {
 
 			}
 		});
-		btnScramble.setBounds(350, 156, 89, 23);
+		btnScramble.setBounds(333, 156, 106, 23);
 		contentPane.add(btnScramble);
 
 		textArea1 = new JTextArea();
@@ -170,7 +168,7 @@ public class Randomizer extends JFrame {
 				textArea1.setText("");
 			}
 		});
-		btnClear.setBounds(472, 156, 89, 23);
+		btnClear.setBounds(472, 156, 106, 23);
 		contentPane.add(btnClear);
 
 		btnBg = new JButton("BG");
@@ -193,7 +191,7 @@ public class Randomizer extends JFrame {
 				
 			}
 		});
-		btnBg.setBounds(855, 303, 67, 29);
+		btnBg.setBounds(864, 303, 58, 29);
 		contentPane.add(btnBg);
 		
 		label = new JLabel("");
